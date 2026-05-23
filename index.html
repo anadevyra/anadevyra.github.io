@@ -211,6 +211,13 @@
     color:var(--text-faint);text-align:center;
   }
   .dl-meta b{color:var(--cyan);font-weight:600}
+  .dl-note{
+    margin-top:6px;text-align:center;font-size:12px;line-height:1.5;color:var(--text-faint);
+    padding:10px 12px;border-radius:10px;
+    background:rgba(0,242,255,.04);border:1px dashed var(--line);
+  }
+  .dl-note b{color:var(--text-dim);font-weight:600}
+  .dl-note em{color:var(--text-dim);font-style:normal;font-family:var(--mono);font-size:11px}
 
   /* ─── section frame ─────────────────────────────── */
   section{padding:80px 0;position:relative}
@@ -389,17 +396,18 @@
             running Android 8.0 or later.
           </p>
           <div class="dl-stats">
-            <div class="stat"><div class="stat-k">Version</div><div class="stat-v">v2.3</div></div>
-            <div class="stat"><div class="stat-k">Android</div><div class="stat-v">8.0+</div></div>
-            <div class="stat"><div class="stat-k">Size</div><div class="stat-v">235 MB</div></div>
+            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">v2.3</div></div>
+            <div class="stat"><div class="stat-k">Android</div><div class="stat-v" id="stat-android">8.0+</div></div>
+            <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">235 MB</div></div>
           </div>
         </div>
         <div class="dl-cta-wrap">
-          <a class="dl-cta" href="https://github.com/anadevyra/anadevyra.github.io/releases/download/v2.3/aura-devyra-v2.3.apk" rel="noopener">
+          <a class="dl-cta" id="dl-cta" href="https://drive.google.com/uc?export=download&id=1AVTRfQnUevLA0Wg_Phos2Ya1tTD9T3Ya" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
             Download APK
           </a>
-          <div class="dl-meta">Direct · <b>SHA-pinned</b> · GitHub-hosted</div>
+          <div class="dl-meta">Direct · <b id="dl-updated">Latest build</b> · Always current</div>
+          <div class="dl-note">If Drive shows <em>"can't scan for viruses"</em> — tap <b>Download anyway</b>. Large APKs trigger that warning by default; it's safe.</div>
         </div>
       </div>
     </div>
@@ -554,6 +562,26 @@
 </footer>
 
 <script>
+  // release metadata — fetched on every load so any edit to release.json
+  // (or visitor opens the page after a Drive "Manage versions" upload) is reflected immediately.
+  // Cache-busted with timestamp so GH Pages CDN never serves stale.
+  fetch('release.json?t='+Date.now(),{cache:'no-store'})
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{
+      if(!d) return;
+      const $=id=>document.getElementById(id);
+      if(d.version)      $('stat-version').textContent = d.version;
+      if(d.android_min)  $('stat-android').textContent = d.android_min;
+      if(d.size_mb)      $('stat-size').textContent = d.size_mb + ' MB';
+      if(d.download_url) $('dl-cta').href = d.download_url;
+      if(d.updated){
+        $('dl-updated').textContent = 'Updated ' + d.updated;
+        const fm = document.querySelector('.foot-meta');
+        if(fm) fm.textContent = (d.version || 'v2.3') + ' · Updated ' + d.updated;
+      }
+    })
+    .catch(()=>{});
+
   // scroll-reveal
   const io=new IntersectionObserver((ents)=>{
     ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
