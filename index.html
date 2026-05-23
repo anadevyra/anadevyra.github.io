@@ -11,6 +11,14 @@
 <meta property="og:description" content="Kyber-1024 secured. No phone. No email. Just privacy.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://anadevyra.github.io">
+<meta property="og:image" content="https://anadevyra.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Secure Chat by AnA Devyra — Post-Quantum Encrypted Messaging">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Secure Chat by AnA Devyra">
+<meta name="twitter:description" content="Post-quantum encrypted messaging. No phone. No email. Just privacy.">
+<meta name="twitter:image" content="https://anadevyra.github.io/og-image.png">
 <title>Secure Chat by AnA Devyra — Post-Quantum Encrypted Messaging</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2300f2ff'/><stop offset='1' stop-color='%23BF953F'/></linearGradient></defs><rect x='14' y='28' width='36' height='26' rx='5' fill='none' stroke='url(%23g)' stroke-width='3'/><path d='M22 28v-6a10 10 0 0 1 20 0v6' fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/><circle cx='32' cy='40' r='3' fill='url(%23g)'/></svg>">
 <style>
@@ -328,6 +336,23 @@
   /* ─── preserve "AnA" casing inside uppercased elements ─── */
   .bn{text-transform:none}
 
+  /* ─── animated aura-ring brand logo ─── */
+  .aura-ring{transform-origin:50% 50%;animation:aura-pulse 3.4s ease-in-out infinite}
+  .aura-r2{animation-delay:-1.1s}
+  .aura-r3{animation-delay:-2.2s}
+  .aura-r4{animation-delay:-3.3s}
+  @keyframes aura-pulse{
+    0%,100%{opacity:.55;transform:scale(.98)}
+    50%{opacity:.10;transform:scale(1.08)}
+  }
+  .aura-ticks{transform-origin:50% 50%;animation:aura-rotate 26s linear infinite;opacity:.7}
+  @keyframes aura-rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  .aura-spark{animation:aura-spark 2s ease-in-out infinite}
+  @keyframes aura-spark{0%,100%{opacity:.85}50%{opacity:1}}
+  @media(prefers-reduced-motion:reduce){
+    .aura-ring,.aura-ticks,.aura-spark{animation:none}
+  }
+
   /* ─── stats band ────────────────────────────── */
   .stats-section{padding:40px 0 20px}
   .stats-band{
@@ -445,21 +470,62 @@
 <div class="grid-layer"></div>
 <div class="scan-line"></div>
 
+<!-- ─── shared animated aura-ring brand logo symbol ─── -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a8fbff"/>
+      <stop offset="1" stop-color="#0290a0"/>
+    </linearGradient>
+    <linearGradient id="gG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FCF6BA"/>
+      <stop offset="1" stop-color="#AA771C"/>
+    </linearGradient>
+    <radialGradient id="gGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#00f2ff" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#00f2ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <symbol id="aura-logo" viewBox="0 0 200 200">
+    <!-- central radial glow -->
+    <circle cx="100" cy="100" r="80" fill="url(#gGlow)"/>
+    <!-- aura rings (animated pulse, staggered) -->
+    <circle class="aura-ring"     cx="100" cy="100" r="90" fill="none" stroke="#00f2ff" stroke-width="1" opacity=".35"/>
+    <circle class="aura-ring aura-r2" cx="100" cy="100" r="78" fill="none" stroke="#00f2ff" stroke-width="1.2" opacity=".5"/>
+    <circle class="aura-ring aura-r3" cx="100" cy="100" r="66" fill="none" stroke="#BF953F" stroke-width="1.2" opacity=".55"/>
+    <circle class="aura-ring aura-r4" cx="100" cy="100" r="56" fill="none" stroke="#a8fbff" stroke-width="1.4" opacity=".7"/>
+    <!-- HUD tick marks (slowly rotating) -->
+    <g class="aura-ticks" stroke="#00f2ff" stroke-width="1.4" stroke-linecap="round">
+      <line x1="100" y1="6"  x2="100" y2="14"/>
+      <line x1="100" y1="186" x2="100" y2="194"/>
+      <line x1="6"   y1="100" x2="14"  y2="100"/>
+      <line x1="186" y1="100" x2="194" y2="100"/>
+      <line x1="32"  y1="32"  x2="38"  y2="38" opacity=".7"/>
+      <line x1="168" y1="32"  x2="162" y2="38" opacity=".7"/>
+      <line x1="32"  y1="168" x2="38"  y2="162" opacity=".7"/>
+      <line x1="168" y1="168" x2="162" y2="162" opacity=".7"/>
+    </g>
+    <!-- lock body -->
+    <rect x="62" y="95" width="76" height="60" rx="8" fill="url(#gC)" stroke="#a8fbff" stroke-width="1.5"/>
+    <!-- lock body highlight -->
+    <rect x="65" y="98" width="70" height="6" rx="3" fill="#a8fbff" opacity=".5"/>
+    <!-- shackle (gold U) -->
+    <path d="M75 95 V80 a25 25 0 0 1 50 0 V95"
+          fill="none" stroke="url(#gG)" stroke-width="7" stroke-linecap="round"/>
+    <path d="M75 95 V80 a25 25 0 0 1 50 0 V95"
+          fill="none" stroke="#FCF6BA" stroke-width="1.5" stroke-linecap="round" opacity=".7"/>
+    <!-- keyhole -->
+    <circle cx="100" cy="120" r="4.5" fill="#020a12"/>
+    <rect x="98" y="122" width="4" height="10" rx="2" fill="#020a12"/>
+    <circle class="aura-spark" cx="100" cy="120" r="2" fill="#FCF6BA"/>
+  </symbol>
+</svg>
+
 <!-- ─── NAV ─── -->
 <nav class="nav">
   <div class="nav-inner">
     <div class="brand">
-      <svg class="brand-lock" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#00f2ff"/>
-            <stop offset="1" stop-color="#BF953F"/>
-          </linearGradient>
-        </defs>
-        <rect x="14" y="28" width="36" height="26" rx="5" fill="none" stroke="url(#lg)" stroke-width="3"/>
-        <path d="M22 28v-6a10 10 0 0 1 20 0v6" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="32" cy="40" r="3" fill="url(#lg)"/>
-      </svg>
+      <svg class="brand-lock" viewBox="0 0 200 200" aria-hidden="true"><use href="#aura-logo"/></svg>
       <span class="brand-name">SECURE CHAT <span style="color:var(--text-faint);font-weight:500;letter-spacing:.02em">by AnA Devyra</span></span>
     </div>
     <a href="#download" class="nav-cta">Download</a>
@@ -505,7 +571,7 @@
             running Android 8.0 or later.
           </p>
           <div class="dl-stats">
-            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">v2.3</div></div>
+            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">v1.0</div></div>
             <div class="stat"><div class="stat-k">Android</div><div class="stat-v" id="stat-android">8.0+</div></div>
             <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">235 MB</div></div>
           </div>
@@ -791,14 +857,10 @@
   <div class="wrap">
     <div class="foot-inner">
       <div class="foot-l">
-        <svg class="brand-lock" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <rect x="14" y="28" width="36" height="26" rx="5" fill="none" stroke="url(#lg)" stroke-width="3"/>
-          <path d="M22 28v-6a10 10 0 0 1 20 0v6" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="32" cy="40" r="3" fill="url(#lg)"/>
-        </svg>
+        <svg class="brand-lock" viewBox="0 0 200 200" aria-hidden="true"><use href="#aura-logo"/></svg>
         <div>
           <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by AnA Devyra</span></div>
-          <div class="foot-meta">v2.3 · Updated 2026-05-23</div>
+          <div class="foot-meta">v1.0 · Updated 2026-05-23</div>
         </div>
       </div>
       <div class="foot-r">
@@ -829,7 +891,7 @@
       if(d.updated){
         $('dl-updated').textContent = 'Updated ' + d.updated;
         const fm = document.querySelector('.foot-meta');
-        if(fm) fm.textContent = (d.version || 'v2.3') + ' · Updated ' + d.updated;
+        if(fm) fm.textContent = (d.version || 'v1.0') + ' · Updated ' + d.updated;
       }
     })
     .catch(()=>{});
