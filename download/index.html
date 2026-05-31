@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Download · Secure Chat by AnA Devyra</title>
+<meta name="description" content="Download the latest Secure Chat APK.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/og-image.png">
+<style>
+  *,*:before,*:after{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#010204;color:#e6f1ff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    overflow-x:hidden;line-height:1.55;padding:24px}
+  body:before{content:"";position:fixed;inset:0;background:
+    radial-gradient(circle at 18% 22%, rgba(0,242,255,.06) 0, transparent 38%),
+    radial-gradient(circle at 80% 78%, rgba(191,149,63,.05) 0, transparent 42%);
+    pointer-events:none;z-index:0}
+  .card{position:relative;z-index:1;max-width:520px;width:100%;
+    background:linear-gradient(180deg,rgba(12,18,26,.85),rgba(12,18,26,.65));
+    border:1px solid rgba(0,242,255,.14);border-radius:18px;padding:36px 30px;
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    box-shadow:0 30px 80px -30px rgba(0,242,255,.18),inset 0 1px 0 rgba(255,255,255,.04);
+    text-align:center}
+  .brand{font-family:"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    font-size:11px;letter-spacing:.36em;color:#00f2ff;text-transform:uppercase;
+    margin-bottom:14px;opacity:.85}
+  h1{margin:0 0 8px;font-size:26px;font-weight:600;letter-spacing:.02em;
+    background:linear-gradient(135deg,#BF953F 0%,#FCF6BA 45%,#AA771C 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .sub{margin:0 0 28px;font-size:14px;color:#94a8c0;letter-spacing:.01em}
+  .ver{font-family:"SFMono-Regular",Menlo,Consolas,monospace;font-size:12px;
+    letter-spacing:.18em;color:#00f2ff;text-transform:uppercase;margin-bottom:6px;opacity:.7}
+  .ver span{color:#e6f1ff;opacity:.9}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    margin-top:8px;padding:16px 28px;border-radius:12px;
+    background:linear-gradient(135deg,#00f2ff 0%,#00b9c7 100%);
+    color:#010204;font-weight:600;font-size:15px;letter-spacing:.04em;
+    text-decoration:none;border:0;cursor:pointer;
+    box-shadow:0 14px 40px -14px rgba(0,242,255,.55);transition:transform .12s ease,box-shadow .2s ease}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 18px 48px -14px rgba(0,242,255,.7)}
+  .btn:active{transform:translateY(0)}
+  .btn svg{width:18px;height:18px}
+  .hint{margin-top:22px;font-size:12px;color:#6c829c;letter-spacing:.02em}
+  .hint em{color:#9ab0c8;font-style:normal}
+  .back{display:inline-block;margin-top:18px;font-size:12px;
+    color:#94a8c0;text-decoration:none;letter-spacing:.06em;opacity:.7;
+    border-bottom:1px dotted rgba(148,168,192,.3)}
+  .back:hover{opacity:1;color:#00f2ff}
+  .countdown{display:block;margin-top:14px;font-size:11px;color:#6c829c;
+    letter-spacing:.16em;text-transform:uppercase;min-height:14px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">AnA Devyra · Secure Chat</div>
+    <h1>Get the APK</h1>
+    <p class="sub">Latest release build, hosted on Google Drive.</p>
+    <div class="ver">VERSION <span id="ver">2.40.12</span> · <span id="size">157</span> MB</div>
+    <a class="btn" id="dl" href="https://drive.google.com/uc?export=download&id=1lDyEbLnWGlaoEHhn7Dfzm2pGjBVJQRfd" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+      Download APK
+    </a>
+    <div class="countdown" id="cd">Starting download…</div>
+    <div class="hint">If Drive shows <em>"can't scan for viruses"</em> — tap <em>Download anyway</em>. Large APKs trigger that warning by default; it's safe.</div>
+    <a class="back" href="/">← Back to site</a>
+  </div>
+<script>
+  // Pull the latest release info from release.json so this page stays in sync
+  // with the home page (no duplicate Drive ID hardcoded as the source of truth).
+  fetch('/release.json?t='+Date.now(),{cache:'no-store'})
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{
+      if(!d) return;
+      if(d.version)      document.getElementById('ver').textContent = d.version;
+      if(d.size_mb)      document.getElementById('size').textContent = d.size_mb;
+      if(d.download_url) document.getElementById('dl').href = d.download_url;
+    })
+    .catch(()=>{});
+
+  // Auto-trigger download after a brief delay so the user sees what's happening,
+  // but never blocks them from tapping the button manually first.
+  let n = 3;
+  const cd = document.getElementById('cd');
+  const tick = () => {
+    if(n <= 0){
+      cd.textContent = 'Opening Drive…';
+      const btn = document.getElementById('dl');
+      // Use location.href instead of btn.click() so the browser handles the
+      // navigation in-tab — avoids Android handing the URL to the Drive app.
+      window.location.href = btn.href;
+      return;
+    }
+    cd.textContent = 'Starting download in ' + n + '…';
+    n--;
+    setTimeout(tick, 1000);
+  };
+  setTimeout(tick, 600);
+</script>
+</body>
+</html>
