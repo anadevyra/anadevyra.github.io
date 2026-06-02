@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#010204">
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta http-equiv="pragma" content="no-cache">
+<script>(()=>{try{var t=localStorage.getItem('theme');if(t==='clarity')document.documentElement.setAttribute('data-theme','clarity');}catch(e){}})();</script>
 <meta name="description" content="Secure Chat by AnA Devyra — post-quantum encrypted messaging. Stories, voice transcribe, smart replies, encrypted groups. No phone. No email. Self-host optional. Sovereign Swiss hosting on the roadmap.">
 <meta property="og:title" content="Secure Chat by AnA Devyra — Post-Quantum Encrypted Messaging">
 <meta property="og:description" content="Kyber-1024 secured. Stories, voice transcribe, encrypted groups, smart replies. No phone. No email. Sovereign Swiss roadmap.">
@@ -93,6 +94,7 @@
       <a href="/about/" class="nav-link">About</a>
       <a href="/contact/" class="nav-link">Contact</a>
     </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀</button>
     <a href="https://github.com/anadevyra/anadevyra.github.io/releases/download/v1.1/secure-chat-v1.1.apk" id="nav-cta" class="nav-cta" rel="noopener">Download APK</a>
   </div>
 </nav>
@@ -683,6 +685,8 @@
   </div>
 </footer>
 
+<button id="to-top" class="to-top" aria-label="Back to top">↑</button>
+
 <script>
   // release metadata — fetched on every load so any edit to release.json
   // (or visitor opens the page after a Drive "Manage versions" upload) is reflected immediately.
@@ -717,15 +721,34 @@
   // gentle parallax on hero grid (rAF-throttled, no jank)
   let ticking=false;
   const grid=document.querySelector('.grid-layer');
+  const tt=document.getElementById('to-top');
   window.addEventListener('scroll',()=>{
     if(ticking) return;
     ticking=true;
     requestAnimationFrame(()=>{
       const y=Math.min(window.scrollY,800);
       if(grid) grid.style.transform=`translate3d(0,${-y*0.08}px,0)`;
+      if(tt) tt.classList.toggle('on',window.scrollY>400);
       ticking=false;
     });
   },{passive:true});
+  if(tt) tt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  // theme toggle
+  const themeBtn=document.getElementById('theme-toggle');
+  function syncThemeIcon(){
+    const isClarity=document.documentElement.getAttribute('data-theme')==='clarity';
+    if(themeBtn) themeBtn.textContent=isClarity?'☾':'☀';
+  }
+  syncThemeIcon();
+  if(themeBtn) themeBtn.addEventListener('click',()=>{
+    const root=document.documentElement;
+    const next=root.getAttribute('data-theme')==='clarity'?'cyber':'clarity';
+    if(next==='clarity') root.setAttribute('data-theme','clarity');
+    else root.removeAttribute('data-theme');
+    try{localStorage.setItem('theme',next);}catch(e){}
+    syncThemeIcon();
+  });
 </script>
 </body>
 </html>

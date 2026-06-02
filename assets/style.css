@@ -720,3 +720,100 @@
   }
   .timeline-body h4{font-size:16px;font-weight:700;margin-bottom:6px;letter-spacing:-.005em}
   .timeline-body p{color:var(--text-dim);font-size:14px;line-height:1.6}
+
+  /* ─── back-to-top FAB ─── */
+  .to-top{
+    position:fixed;right:16px;bottom:16px;z-index:60;
+    width:46px;height:46px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(0,242,255,.16);color:var(--cyan);
+    border:1px solid var(--line-strong);
+    backdrop-filter:saturate(160%) blur(10px);
+    -webkit-backdrop-filter:saturate(160%) blur(10px);
+    box-shadow:0 6px 18px -4px rgba(0,242,255,.4);
+    font-size:20px;font-weight:700;line-height:1;
+    opacity:0;transform:translateY(12px);pointer-events:none;
+    transition:opacity .25s ease,transform .25s ease,background .2s ease;
+  }
+  .to-top.on{opacity:1;transform:translateY(0);pointer-events:auto}
+  .to-top:hover{background:rgba(0,242,255,.28);transform:translateY(-2px)}
+  .to-top:active{transform:translateY(0) scale(.96)}
+
+  /* ─── mobile compaction (narrow viewports) ─── */
+  @media(max-width:720px){
+    section{padding:52px 0}
+    .stats-section{padding:28px 0 16px}
+    .mockup-section{padding:40px 0 56px}
+    .wrap{padding:0 18px}
+    .hero{padding:48px 0 36px}
+    .page-hero{padding:42px 0 32px}
+    .nav-inner{padding:12px 18px}
+    .nav-cta{padding:8px 13px;font-size:12px}
+    footer{padding:38px 0 28px}
+    .inner-card{padding:24px 18px !important}
+    .channel{padding:20px 18px}
+    .timeline-item{grid-template-columns:64px 1fr;gap:14px}
+    .timeline-when{font-size:10px;letter-spacing:.16em}
+    .to-top{right:14px;bottom:14px;width:44px;height:44px}
+    .theme-toggle{width:34px;height:34px;font-size:13px}
+  }
+
+  /* ─── theme toggle button (in nav) ─── */
+  .theme-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(0,242,255,.10);color:var(--cyan);
+    border:1px solid var(--line);
+    font-size:15px;line-height:1;
+    transition:background .2s ease,transform .15s ease,color .2s ease;
+    cursor:pointer;flex:0 0 auto;
+  }
+  .theme-toggle:hover{background:rgba(0,242,255,.22);transform:scale(1.06)}
+  .theme-toggle:active{transform:scale(.96)}
+
+  /* ─── CLARITY (light) theme override ─── */
+  :root[data-theme="clarity"]{
+    --surface:rgba(255,255,255,.82);
+    --surface-2:rgba(255,255,255,.94);
+    --line:rgba(20,33,61,.10);
+    --line-strong:rgba(20,33,61,.22);
+    --text:#14213D;
+    --text-dim:#5b6b85;
+    --text-faint:#8694a8;
+  }
+  :root[data-theme="clarity"] body{background:#FAF6E8;color:#14213D}
+  :root[data-theme="clarity"] .bg-layer{
+    background:
+      radial-gradient(1200px 600px at 80% -10%,rgba(191,149,63,.18),transparent 60%),
+      radial-gradient(900px 500px at 0% 30%,rgba(20,33,61,.05),transparent 60%),
+      radial-gradient(800px 800px at 50% 110%,rgba(191,149,63,.12),transparent 60%),
+      #FAF6E8;
+  }
+  :root[data-theme="clarity"] .grid-layer{
+    background-image:
+      linear-gradient(rgba(20,33,61,.07) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(20,33,61,.07) 1px,transparent 1px);
+    opacity:.6;
+  }
+  :root[data-theme="clarity"] .scan-line{
+    background:linear-gradient(90deg,transparent,rgba(191,149,63,.45),transparent);
+    box-shadow:0 0 18px rgba(191,149,63,.35);
+  }
+  :root[data-theme="clarity"] .nav{background:rgba(250,246,232,.72);border-bottom-color:rgba(20,33,61,.06)}
+  :root[data-theme="clarity"] .nav-cta{
+    color:#FAF6E8;background:var(--gold-1);
+    box-shadow:0 0 0 1px var(--gold-1),0 8px 24px -8px rgba(191,149,63,.6);
+  }
+  :root[data-theme="clarity"] .nav-cta:hover{box-shadow:0 0 0 1px var(--gold-1),0 12px 32px -8px rgba(191,149,63,.8)}
+  :root[data-theme="clarity"] .theme-toggle{
+    background:rgba(191,149,63,.16);color:var(--gold-3);
+    border-color:rgba(20,33,61,.14);
+  }
+  :root[data-theme="clarity"] .theme-toggle:hover{background:rgba(191,149,63,.28)}
+  :root[data-theme="clarity"] .to-top{
+    background:rgba(191,149,63,.18);color:var(--gold-3);
+    border-color:rgba(20,33,61,.18);
+    box-shadow:0 6px 18px -4px rgba(191,149,63,.45);
+  }
+  :root[data-theme="clarity"] .to-top:hover{background:rgba(191,149,63,.3)}
+  :root[data-theme="clarity"] footer{border-top-color:rgba(20,33,61,.08)}
