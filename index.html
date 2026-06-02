@@ -340,8 +340,8 @@
       </div>
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-5 6-7 10-7s8 2 10 7c-2 5-6 7-10 7s-8-2-10-7z"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="12" x2="12" y2="12.01"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
-        <div class="feat-title">Burner / View-Once Photos</div>
-        <div class="feat-desc">Send a photo that vanishes the moment they look at it. One view. No forward, no save, no screenshot — the receiver sees it once and it's gone forever.</div>
+        <div class="feat-title">Burner Messages</div>
+        <div class="feat-desc">Send a message sealed with a burn timer — pick the seconds, minutes or hours it lives after the receiver opens it. Choose <strong>trace</strong> (leaves a faint 🔥 marker after burn) or <strong>no-trace</strong> (vanishes as if the message never existed). Works for text, photos and voice, in 1-to-1 and groups.</div>
       </div>
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div>
@@ -379,7 +379,7 @@
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
         <div class="feat-title">Chat Folders</div>
-        <div class="feat-desc">Custom folders organize chats — work, family, signal-only. Switch with a swipe; never lose a thread to the scroll.</div>
+        <div class="feat-desc">Custom folders organize chats — work, family, private. Switch with a swipe; never lose a thread to the scroll.</div>
       </div>
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M16 18h5"/><path d="M18.5 15.5v5"/></svg></div>
@@ -508,9 +508,9 @@
       <div class="road-card reveal">
         <div class="road-when">Then · Q4 2026 +</div>
         <div class="road-title">Global subserver network</div>
-        <div class="road-desc">Add regional subservers close to users, anchored on the Swiss primary. Open deploy — community members can run their own subserver anywhere in the world.</div>
+        <div class="road-desc">Add regional subservers close to users, anchored on the Swiss primary. Enterprise partners run dedicated regional relays for their organisations.</div>
         <ul class="road-list">
-          <li>Bring-your-own-server stays one command — fork the deploy</li>
+          <li>Enterprise-region deployments scoped per partner</li>
           <li>Discovery layer routes apps to the nearest healthy region</li>
           <li>Resilience by topology, not by any single provider</li>
         </ul>
@@ -562,9 +562,9 @@
 <section id="compare">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="section-eyebrow">vs. the rest</div>
+      <div class="section-eyebrow">how we stack up</div>
       <h2 class="section-title">Why it's different.</h2>
-      <p class="section-sub">Same encryption strength as the best — and less identity exposure than any of them.</p>
+      <p class="section-sub">Same encryption strength as the best privacy apps — and less identity exposure than any of them.</p>
     </div>
     <div class="compare-wrap reveal">
       <div class="compare-scroll">
@@ -573,24 +573,23 @@
             <tr>
               <th></th>
               <th class="us-h">Secure Chat</th>
-              <th>Signal</th>
-              <th>WhatsApp</th>
-              <th>Telegram</th>
+              <th>Mainstream messengers</th>
+              <th>Privacy-focused apps</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>No phone number required</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
-            <tr><td>No email required</td><td class="us yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="no">—</td></tr>
-            <tr><td>End-to-end encryption (default)</td><td class="us yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="partial">opt-in only</td></tr>
-            <tr><td>Post-quantum (Kyber-1024)</td><td class="us yes">✓</td><td class="partial">PQXDH partial</td><td class="no">—</td><td class="no">—</td></tr>
-            <tr><td>Dedicated enterprise deployments</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
-            <tr><td>Open APK · no store gatekeeper</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="yes">✓</td></tr>
-            <tr><td>Volatile, shredded server logs</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
-            <tr><td>Decoy mode (plausible deniability)</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
-            <tr><td>Vanish mode (per-thread timers)</td><td class="us yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-            <tr><td>On-device voice transcribe + translate</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="partial">cloud only</td></tr>
-            <tr><td>Stories with E2E reactions + viewer stats</td><td class="us yes">✓</td><td class="partial">basic</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-            <tr><td>Sovereign multi-region roadmap</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+            <tr><td>No phone number required</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+            <tr><td>No email required</td><td class="us yes">✓</td><td class="partial">varies</td><td class="yes">✓</td></tr>
+            <tr><td>End-to-end encryption (default)</td><td class="us yes">✓</td><td class="partial">varies</td><td class="yes">✓</td></tr>
+            <tr><td>Post-quantum (Kyber-1024)</td><td class="us yes">✓</td><td class="no">—</td><td class="partial">partial</td></tr>
+            <tr><td>Dedicated enterprise deployments</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+            <tr><td>Open APK · no store gatekeeper</td><td class="us yes">✓</td><td class="partial">varies</td><td class="partial">varies</td></tr>
+            <tr><td>Volatile, shredded server logs</td><td class="us yes">✓</td><td class="no">—</td><td class="partial">partial</td></tr>
+            <tr><td>Decoy mode (plausible deniability)</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
+            <tr><td>Vanish mode (per-thread timers)</td><td class="us yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>On-device voice transcribe + translate</td><td class="us yes">✓</td><td class="partial">cloud only</td><td class="no">—</td></tr>
+            <tr><td>Stories with E2E reactions + viewer stats</td><td class="us yes">✓</td><td class="yes">✓</td><td class="partial">basic</td></tr>
+            <tr><td>Sovereign multi-region roadmap</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
           </tbody>
         </table>
       </div>
@@ -648,8 +647,8 @@
         <div class="faq-a">Your account effectively dies with it — which is the point. No recovery loop means no recovery vector for an attacker. Use the in-app <strong>session export</strong> to back up encrypted state to storage you control.</div>
       </details>
       <details class="faq-item reveal">
-        <summary class="faq-q">Can I run my own server?</summary>
-        <div class="faq-a">Yes. The server is open and ships with a one-line deploy. Point your app at your own URL and you control the relay end-to-end. Friends and family can join your server, not ours.</div>
+        <summary class="faq-q">Do you offer enterprise deployments?</summary>
+        <div class="faq-a">Yes — for teams, businesses, and organisations that need a dedicated relay under their own control. We deploy a hardened instance pointed at your domain, with the same E2E crypto stack and your operations team holding the keys. Reach out via <a href="/contact/" style="color:var(--cyan)">contact</a> for scoping.</div>
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">Does it work between countries?</summary>
@@ -673,7 +672,7 @@
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">What's the Switzerland plan?</summary>
-        <div class="faq-a">Q3 2026: bring up a <strong>Switzerland region</strong> as the new primary with cross-region replication. Auto-failover at the discovery layer means every installed app migrates without an APK push. Q4 2026 and beyond: extend with regional subservers close to users worldwide, anchored on the Swiss primary, with strong privacy framework alignment. The deploy is open — community members can run their own subserver anywhere.</div>
+        <div class="faq-a">Q3 2026: bring up a <strong>Switzerland region</strong> as the new primary with cross-region replication. Auto-failover at the discovery layer means every installed app migrates without an APK push. Q4 2026 and beyond: extend with regional subservers close to users worldwide, anchored on the Swiss primary, with strong privacy framework alignment. Enterprise partners can host dedicated regional relays for their organisations.</div>
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">What will be in premium?</summary>
