@@ -657,7 +657,7 @@
             running Android 8.0 or later.
           </p>
           <div class="dl-stats">
-            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.27-i</div></div>
+            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.27</div></div>
             <div class="stat"><div class="stat-k">Android</div><div class="stat-v" id="stat-android">8.0+</div></div>
             <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">274 MB</div></div>
           </div>
@@ -703,7 +703,7 @@
 <section id="features">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="section-eyebrow">Capabilities · 2.40.27-i</div>
+      <div class="section-eyebrow">Capabilities · 2.40.27</div>
       <h2 class="section-title">A real messenger — sealed all the way down.</h2>
       <p class="section-sub">Post-quantum crypto, on-device intelligence, and the everyday features
         people actually use — Stories, voice transcribe, smart replies, encrypted groups. Sealed
@@ -840,7 +840,7 @@
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/><line x1="4" y1="20" x2="20" y2="4"/></svg></div>
         <div class="feat-title">Zero Metadata</div>
-        <div class="feat-desc">No access logs. Volatile journald. 12 auto-cleanup layers including 24h status sweep, disk-pressure shred, token + pending-msg TTLs.</div>
+        <div class="feat-desc">No access logs. Ephemeral system logs. Comprehensive auto-cleanup across every server surface — nothing useful sticks around.</div>
       </div>
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c3-6 7-9 10-9s7 3 10 9c-3 6-7 9-10 9s-7-3-10-9z"/><circle cx="12" cy="12" r="3"/><line x1="3" y1="3" x2="21" y2="21"/></svg></div>
@@ -893,38 +893,38 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="section-eyebrow">Roadmap</div>
-      <h2 class="section-title">From Mumbai to Switzerland.</h2>
-      <p class="section-sub">Today the server lives in Mumbai. The plan is honest, dated, and small enough to actually ship.</p>
+      <h2 class="section-title">A global multi-region network.</h2>
+      <p class="section-sub">Mumbai today. Switzerland soon as the primary. A network of regional subservers after that — close to every user, honest about the dates.</p>
     </div>
     <div class="roadmap-grid">
       <div class="road-card now reveal">
         <div class="road-when">Now · June 2026</div>
-        <div class="road-title">Production — Mumbai</div>
-        <div class="road-desc">GCP Mumbai with a custom <span style="color:var(--cyan)">api.anadevyra.com</span> domain. Sub-200&nbsp;ms in India, low-200&nbsp;ms global. Hardened, monitored, swept.</div>
+        <div class="road-title">Mumbai — first region live</div>
+        <div class="road-desc">Production region on GCP Mumbai with a custom <span style="color:var(--cyan)">api.anadevyra.com</span> domain. Low latency across India and Asia; reachable globally. Hardened and monitored.</div>
         <ul class="road-list">
-          <li>12 auto-cleanup layers — status TTL, disk-pressure sweep, log shred</li>
-          <li>Let's Encrypt TLS, sovereign DNS via BigRock</li>
-          <li>Volatile journald · no access logs · nothing indexable</li>
+          <li>Ephemeral system logs · no access retention</li>
+          <li>Let's Encrypt TLS, independent DNS</li>
+          <li>Comprehensive auto-cleanup across every server surface</li>
         </ul>
       </div>
       <div class="road-card reveal">
         <div class="road-when">Next · Q3 2026</div>
-        <div class="road-title">Switzerland mirror</div>
-        <div class="road-desc">Second region on GCP Zurich. 5-minute cross-replication of vault, pending queue, and identity. Auto-failover at the discovery layer.</div>
+        <div class="road-title">Switzerland — new primary</div>
+        <div class="road-desc">Bring up a Switzerland region as the new primary, with cross-region replication of vault, pending queue, and identity. Auto-failover at the discovery layer.</div>
         <ul class="road-list">
-          <li>No APK push needed — migration happens at the gist layer</li>
-          <li>Old <code style="font-family:var(--mono);font-size:12px;color:var(--cyan)">.nip.io</code> URL kept serving forever for legacy installs</li>
-          <li>Mumbai becomes secondary; reverse-rsync starts</li>
+          <li>No APK push needed — every installed app auto-migrates</li>
+          <li>Mumbai stays online as a regional subserver</li>
+          <li>Strong Swiss privacy framework alignment</li>
         </ul>
       </div>
       <div class="road-card reveal">
-        <div class="road-when">Sovereign · Q4 2026</div>
-        <div class="road-title">Off cloud, onto Swiss VPS</div>
-        <div class="road-desc">Move primary off GCP to Infomaniak Switzerland. Real <b style="color:var(--gold-2);font-weight:700">FADP jurisdiction</b> — outside US CLOUD Act reach. Volunteer-runnable.</div>
+        <div class="road-when">Then · Q4 2026 +</div>
+        <div class="road-title">Global subserver network</div>
+        <div class="road-desc">Add regional subservers close to users, anchored on the Swiss primary. Open deploy — community members can run their own subserver anywhere in the world.</div>
         <ul class="road-list">
           <li>Bring-your-own-server stays one command — fork the deploy</li>
-          <li>Community can mirror; we publish the topology</li>
-          <li>End-state: no single provider can subpoena what isn't there</li>
+          <li>Discovery layer routes apps to the nearest healthy region</li>
+          <li>Resilience by topology, not by any single provider</li>
         </ul>
       </div>
     </div>
@@ -946,7 +946,7 @@
           <ul>
             <li>Encrypted bytes for delivery — never plaintext</li>
             <li>A short queue of pending recipient IDs — never content</li>
-            <li>Volatile journald entries that rotate to <code style="font-family:var(--mono);color:var(--text)">/dev/null</code></li>
+            <li>Ephemeral system logs that aren't retained</li>
           </ul>
         </div>
         <div class="posture-col no">
@@ -958,7 +958,7 @@
           </ul>
         </div>
         <div class="posture-col zero">
-          <h4>What survives a court order</h4>
+          <h4>What a data request would find</h4>
           <ul>
             <li>Nothing useful — encrypted bytes are unrecoverable without the recipient's private key</li>
             <li>No identity bound to any account</li>
@@ -1085,7 +1085,7 @@
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">What's the Switzerland plan?</summary>
-        <div class="faq-a">Q3 2026: stand up a mirror in <strong>Zurich on GCP</strong> with 5-min cross-replication. Auto-failover at the discovery layer means every installed app migrates without an APK push. Q4 2026: move the primary off GCP to <strong>Infomaniak Switzerland VPS</strong> — real <strong>FADP jurisdiction</strong>, outside US CLOUD Act reach. The deploy is fork-able; volunteers can run their own mirror.</div>
+        <div class="faq-a">Q3 2026: bring up a <strong>Switzerland region</strong> as the new primary with cross-region replication. Auto-failover at the discovery layer means every installed app migrates without an APK push. Q4 2026 and beyond: extend with regional subservers close to users worldwide, anchored on the Swiss primary, with strong privacy framework alignment. The deploy is open — community members can run their own subserver anywhere.</div>
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">What will be in premium?</summary>
@@ -1121,7 +1121,7 @@
         <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
         <div>
           <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
-          <div class="foot-meta">2.40.27-i · Updated 2026-06-02</div>
+          <div class="foot-meta">2.40.27 · Updated 2026-06-02</div>
         </div>
       </div>
       <div class="foot-r">
@@ -1159,7 +1159,7 @@
       if(d.updated){
         $('dl-updated').textContent = 'Updated ' + d.updated;
         const fm = document.querySelector('.foot-meta');
-        if(fm) fm.textContent = (d.version || '2.40.27-i') + ' · Updated ' + d.updated;
+        if(fm) fm.textContent = (d.version || '2.40.27') + ' · Updated ' + d.updated;
       }
     })
     .catch(()=>{});
