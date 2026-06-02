@@ -399,8 +399,8 @@
   }
   .seal b{color:var(--cyan);font-weight:600}
 
-  /* ─── scroll-in animation ──────────────────────── */
-  .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+  /* ─── scroll-in animation (snappy, eager) ───────── */
+  .reveal{opacity:0;transform:translateY(8px);transition:opacity .35s ease,transform .35s ease}
   .reveal.on{opacity:1;transform:none}
 
   /* ─── selection ─────────────────────────────────── */
@@ -657,7 +657,7 @@
             running Android 8.0 or later.
           </p>
           <div class="dl-stats">
-            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">v1.1</div></div>
+            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.27-i</div></div>
             <div class="stat"><div class="stat-k">Android</div><div class="stat-v" id="stat-android">8.0+</div></div>
             <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">274 MB</div></div>
           </div>
@@ -703,7 +703,7 @@
 <section id="features">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="section-eyebrow">Capabilities · v1.1</div>
+      <div class="section-eyebrow">Capabilities · 2.40.27-i</div>
       <h2 class="section-title">A real messenger — sealed all the way down.</h2>
       <p class="section-sub">Post-quantum crypto, on-device intelligence, and the everyday features
         people actually use — Stories, voice transcribe, smart replies, encrypted groups. Sealed
@@ -1121,7 +1121,7 @@
         <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
         <div>
           <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
-          <div class="foot-meta">v1.1 · Updated 2026-06-02</div>
+          <div class="foot-meta">2.40.27-i · Updated 2026-06-02</div>
         </div>
       </div>
       <div class="foot-r">
@@ -1159,15 +1159,16 @@
       if(d.updated){
         $('dl-updated').textContent = 'Updated ' + d.updated;
         const fm = document.querySelector('.foot-meta');
-        if(fm) fm.textContent = (d.version || 'v1.0') + ' · Updated ' + d.updated;
+        if(fm) fm.textContent = (d.version || '2.40.27-i') + ' · Updated ' + d.updated;
       }
     })
     .catch(()=>{});
 
-  // scroll-reveal
+  // scroll-reveal — eager trigger (200px below viewport) so elements fade in
+  // before they enter the visible area, not after
   const io=new IntersectionObserver((ents)=>{
     ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
-  },{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+  },{threshold:0,rootMargin:"0px 0px 200px 0px"});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   // gentle parallax on hero grid (rAF-throttled, no jank)
