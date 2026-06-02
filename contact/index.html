@@ -103,6 +103,33 @@
   </div>
 </section>
 
+<!-- ─── FEEDBACK FORM ─── -->
+<section id="feedback">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Feedback</div>
+      <h2 class="section-title">Tell us what's working — or what isn't.</h2>
+      <p class="section-sub">Quick thoughts, bug reports, feature ideas. Lands straight in our support inbox.</p>
+    </div>
+    <div class="inner-card reveal" style="max-width:680px;margin-inline:auto;padding:32px 28px;">
+      <form id="feedback-form" onsubmit="return submitFeedback(event)">
+        <label for="fb-subject" style="display:block;font-size:12px;letter-spacing:.06em;color:var(--text-dim);margin-bottom:8px;text-transform:uppercase;font-weight:600">Subject</label>
+        <input id="fb-subject" type="text" required maxlength="120" autocomplete="off" placeholder="Bug report · feature idea · question"
+          style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);border-radius:10px;color:var(--text);font-size:15px;font-family:inherit;margin-bottom:18px;outline:none;box-sizing:border-box">
+
+        <label for="fb-message" style="display:block;font-size:12px;letter-spacing:.06em;color:var(--text-dim);margin-bottom:8px;text-transform:uppercase;font-weight:600">Message</label>
+        <textarea id="fb-message" required maxlength="4000" rows="7" placeholder="What you'd like us to know — be as specific as you like."
+          style="width:100%;padding:12px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);border-radius:10px;color:var(--text);font-size:15px;font-family:inherit;resize:vertical;margin-bottom:22px;outline:none;box-sizing:border-box;line-height:1.5"></textarea>
+
+        <button type="submit" class="nav-cta" style="width:100%;padding:14px;font-size:14px;letter-spacing:.06em;border:none;cursor:pointer;text-align:center;display:block">Open mail app to send →</button>
+        <p style="margin-top:16px;font-size:12px;color:var(--text-faint);text-align:center;line-height:1.6">
+          Submits via <code style="font-family:var(--mono);color:var(--cyan);font-size:11px">mailto:</code> to <strong>hello@anadevyra.com</strong> — your default mail app opens with the message pre-filled. Review it, then hit send. Nothing is posted from this page.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ─── PRIVACY NOTE ─── -->
 <section>
   <div class="wrap">
@@ -154,6 +181,17 @@
     ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
   },{threshold:0,rootMargin:"0px 0px 200px 0px"});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  window.submitFeedback = function(ev){
+    ev.preventDefault();
+    var subj = (document.getElementById('fb-subject').value || '').trim();
+    var msg  = (document.getElementById('fb-message').value || '').trim();
+    if(!subj || !msg) return false;
+    var body = msg + '\n\n— sent from https://anadevyra.com/contact/';
+    var href = 'mailto:hello@anadevyra.com?subject=' + encodeURIComponent('[Feedback] ' + subj) + '&body=' + encodeURIComponent(body);
+    window.location.href = href;
+    return false;
+  };
   const tt=document.getElementById('to-top');
   window.addEventListener('scroll',()=>{if(tt) tt.classList.toggle('on',window.scrollY>400)},{passive:true});
   if(tt) tt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
