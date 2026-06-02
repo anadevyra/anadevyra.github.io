@@ -3,3 +3,8 @@
 .gist_create.json
 .release.json
 app_icon_preview.png
+__pycache__/
+*.pyc
+_*.json
+_*.css
+_*.html
