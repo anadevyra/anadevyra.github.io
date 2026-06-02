@@ -773,13 +773,17 @@
 
   /* ─── CLARITY (light) theme override ─── */
   :root[data-theme="clarity"]{
-    --surface:rgba(255,255,255,.82);
-    --surface-2:rgba(255,255,255,.94);
+    --surface:rgba(255,255,255,.86);
+    --surface-2:rgba(255,255,255,.96);
     --line:rgba(20,33,61,.10);
-    --line-strong:rgba(20,33,61,.22);
+    --line-strong:rgba(20,33,61,.24);
     --text:#14213D;
-    --text-dim:#5b6b85;
-    --text-faint:#8694a8;
+    --text-dim:#3a4a65;
+    --text-faint:#6b7a90;
+    --cyan:#8A5C0F;
+    --cyan-soft:rgba(138,92,15,.14);
+    --shadow-glow:0 0 0 1px rgba(20,33,61,.10),0 18px 60px -20px rgba(20,33,61,.18);
+    --shadow-card:0 1px 0 rgba(255,255,255,.6) inset,0 18px 40px -28px rgba(20,33,61,.25);
   }
   :root[data-theme="clarity"] body{background:#FAF6E8;color:#14213D}
   :root[data-theme="clarity"] .bg-layer{
@@ -817,3 +821,33 @@
   }
   :root[data-theme="clarity"] .to-top:hover{background:rgba(191,149,63,.3)}
   :root[data-theme="clarity"] footer{border-top-color:rgba(20,33,61,.08)}
+
+  /* CLARITY: swap cyan-rooted gradients to gold for hero + stats */
+  :root[data-theme="clarity"] .h1-cyan,
+  :root[data-theme="clarity"] .page-hero h1 .h1-cyan{
+    background:linear-gradient(135deg,#AA771C 0%,#BF953F 50%,#8A5C0F 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  :root[data-theme="clarity"] .stat-big-v{
+    background:linear-gradient(135deg,#AA771C 0%,#BF953F 50%,#8A5C0F 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 30px rgba(191,149,63,.18);
+  }
+  :root[data-theme="clarity"] .feat-icon{
+    background:radial-gradient(circle at 30% 30%,rgba(191,149,63,.22),rgba(191,149,63,.05) 60%);
+    box-shadow:0 0 24px -6px rgba(191,149,63,.35);
+  }
+  :root[data-theme="clarity"] .channel-icon{
+    background:rgba(191,149,63,.14)!important;
+    border-color:rgba(138,92,15,.32)!important;
+    color:#8A5C0F!important;
+    box-shadow:0 0 24px -6px rgba(191,149,63,.35);
+  }
+  :root[data-theme="clarity"] .compare-table thead th{background:rgba(191,149,63,.05)}
+  :root[data-theme="clarity"] .compare-table .us{background:rgba(191,149,63,.08)}
+  :root[data-theme="clarity"] .compare-table tbody tr:hover{background:rgba(191,149,63,.04)}
+  :root[data-theme="clarity"] .road-now-badge{background:rgba(191,149,63,.14)}
+  :root[data-theme="clarity"] .how-num{
+    background:rgba(191,149,63,.12);border-color:rgba(138,92,15,.30);color:#8A5C0F;
+  }
+  :root[data-theme="clarity"] ::selection{background:rgba(191,149,63,.35);color:#14213D}
