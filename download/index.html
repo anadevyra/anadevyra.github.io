@@ -56,19 +56,19 @@
   <div class="card">
     <div class="brand">AnA Devyra · Secure Chat</div>
     <h1>Get the APK</h1>
-    <p class="sub">Latest release build, hosted on Google Drive.</p>
-    <div class="ver">VERSION <span id="ver">2.40.12</span> · <span id="size">157</span> MB</div>
-    <a class="btn" id="dl" href="https://drive.google.com/uc?export=download&id=1lDyEbLnWGlaoEHhn7Dfzm2pGjBVJQRfd" rel="noopener">
+    <p class="sub">Latest release build, hosted on GitHub Releases.</p>
+    <div class="ver">VERSION <span id="ver">v1.1</span> · <span id="size">274</span> MB</div>
+    <a class="btn" id="dl" href="https://github.com/anadevyra/anadevyra.github.io/releases/download/v1.1/secure-chat-v1.1.apk" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
       Download APK
     </a>
     <div class="countdown" id="cd">Starting download…</div>
-    <div class="hint">If Drive shows <em>"can't scan for viruses"</em> — tap <em>Download anyway</em>. Large APKs trigger that warning by default; it's safe.</div>
+    <div class="hint">Android may warn about installing from outside the Play Store — tap <em>Install anyway</em> and grant <em>Allow from this source</em> once. APK is signed; verify the SHA in the release notes.</div>
     <a class="back" href="/">← Back to site</a>
   </div>
 <script>
   // Pull the latest release info from release.json so this page stays in sync
-  // with the home page (no duplicate Drive ID hardcoded as the source of truth).
+  // with the home page (no duplicate URL hardcoded as the source of truth).
   fetch('/release.json?t='+Date.now(),{cache:'no-store'})
     .then(r=>r.ok?r.json():null)
     .then(d=>{
@@ -85,10 +85,9 @@
   const cd = document.getElementById('cd');
   const tick = () => {
     if(n <= 0){
-      cd.textContent = 'Opening Drive…';
+      cd.textContent = 'Opening download…';
       const btn = document.getElementById('dl');
-      // Use location.href instead of btn.click() so the browser handles the
-      // navigation in-tab — avoids Android handing the URL to the Drive app.
+      // Use location.href so the browser handles the navigation in-tab.
       window.location.href = btn.href;
       return;
     }
