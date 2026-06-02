@@ -120,6 +120,8 @@
   /* ─── hero ──────────────────────────────────────── */
   .wrap{max-width:1100px;margin:0 auto;padding:0 22px}
   .hero{padding:74px 0 56px;position:relative}
+  /* anchor offset so #download scroll doesn't land behind sticky nav */
+  #download,#features,#how,#roadmap,#posture,#compare,#install,#faq,#about{scroll-margin-top:80px}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
     font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
@@ -606,7 +608,7 @@
       <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
       <span class="brand-name">SECURE CHAT <span style="color:var(--text-faint);font-weight:500;letter-spacing:.02em">by AnA Devyra</span></span>
     </div>
-    <a href="#download" class="nav-cta">Download</a>
+    <a href="https://github.com/anadevyra/anadevyra.github.io/releases/download/v1.1/secure-chat-v1.1.apk" id="nav-cta" class="nav-cta" rel="noopener">Download APK</a>
   </div>
 </nav>
 
@@ -1150,7 +1152,10 @@
       if(d.version)      $('stat-version').textContent = d.version;
       if(d.android_min)  $('stat-android').textContent = d.android_min;
       if(d.size_mb)      $('stat-size').textContent = d.size_mb + ' MB';
-      if(d.download_url) $('dl-cta').href = d.download_url;
+      if(d.download_url){
+        $('dl-cta').href = d.download_url;
+        const nav = $('nav-cta'); if(nav) nav.href = d.download_url;
+      }
       if(d.updated){
         $('dl-updated').textContent = 'Updated ' + d.updated;
         const fm = document.querySelector('.foot-meta');
