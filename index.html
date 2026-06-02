@@ -6,19 +6,20 @@
 <meta name="theme-color" content="#010204">
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta http-equiv="pragma" content="no-cache">
-<meta name="description" content="Secure Chat by AnA Devyra — post-quantum encrypted messaging. No phone number. No email. Just privacy.">
+<meta name="description" content="Secure Chat by AnA Devyra — post-quantum encrypted messaging. Stories, voice transcribe, smart replies, encrypted groups. No phone. No email. Self-host optional. Sovereign Swiss hosting on the roadmap.">
 <meta property="og:title" content="Secure Chat by AnA Devyra — Post-Quantum Encrypted Messaging">
-<meta property="og:description" content="Kyber-1024 secured. No phone. No email. Just privacy.">
+<meta property="og:description" content="Kyber-1024 secured. Stories, voice transcribe, encrypted groups, smart replies. No phone. No email. Sovereign Swiss roadmap.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://anadevyra.github.io">
-<meta property="og:image" content="https://anadevyra.github.io/og-image.png">
+<meta property="og:url" content="https://anadevyra.com">
+<meta property="og:image" content="https://anadevyra.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Secure Chat by AnA Devyra — Post-Quantum Encrypted Messaging">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Secure Chat by AnA Devyra">
 <meta name="twitter:description" content="Post-quantum encrypted messaging. No phone. No email. Just privacy.">
-<meta name="twitter:image" content="https://anadevyra.github.io/og-image.png">
+<meta name="twitter:image" content="https://anadevyra.com/og-image.png">
+<link rel="canonical" href="https://anadevyra.com/">
 <title>Secure Chat by AnA Devyra — Post-Quantum Encrypted Messaging</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='%23010204'/><path d='M32 6 a26 26 0 0 1 0 52' fill='none' stroke='%23BF953F' stroke-width='4' stroke-linecap='round'/><path d='M32 58 a26 26 0 0 1 0 -52' fill='none' stroke='%23AA771C' stroke-width='4' stroke-linecap='round' opacity='.7'/><path d='M14 32 a18 18 0 0 1 18 -18' fill='none' stroke='%2300f2ff' stroke-width='3' stroke-linecap='round'/><path d='M50 32 a14 14 0 0 1 -14 14' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round'/><circle cx='32' cy='32' r='7' fill='%23FCF6BA'/><circle cx='32' cy='32' r='7' fill='url(%23gold-grad)'/><defs><radialGradient id='gold-grad' cx='40%25' cy='40%25'><stop offset='0' stop-color='%23FCF6BA'/><stop offset='1' stop-color='%23AA771C'/></radialGradient></defs></svg>">
 <style>
@@ -239,9 +240,79 @@
   .section-sub{margin-top:14px;color:var(--text-dim);font-size:16px;max-width:60ch}
 
   /* ─── features grid ─────────────────────────────── */
+  .cluster-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold-1);opacity:.82;
+    margin:30px 0 14px;padding-left:2px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .cluster-label::after{
+    content:"";flex:1;height:1px;
+    background:linear-gradient(90deg,rgba(191,149,63,.32),transparent 70%);
+  }
+  .features:first-of-type + .cluster-label{margin-top:18px}
   .features{display:grid;grid-template-columns:1fr;gap:14px}
   @media(min-width:640px){.features{grid-template-columns:repeat(2,1fr)}}
   @media(min-width:980px){.features{grid-template-columns:repeat(3,1fr)}}
+
+  /* ─── roadmap ───────────────────────────────── */
+  .roadmap-grid{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:900px){.roadmap-grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+  .road-card{
+    padding:28px;border-radius:20px;position:relative;overflow:hidden;
+    background:linear-gradient(180deg,rgba(12,18,26,.72),rgba(8,12,18,.52));
+    border:1px solid var(--line);
+    transition:border-color .25s ease,transform .25s ease;
+  }
+  .road-card:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+  .road-card.now{border-color:var(--line-strong);box-shadow:0 0 0 1px var(--line-strong),0 22px 50px -28px rgba(0,242,255,.3)}
+  .road-card.now::before{
+    content:"LIVE";position:absolute;top:18px;right:18px;
+    font-family:var(--mono);font-size:9px;letter-spacing:.22em;
+    color:var(--cyan);padding:3px 8px;border-radius:999px;
+    background:rgba(0,242,255,.10);border:1px solid var(--line-strong);
+  }
+  .road-when{
+    font-family:var(--mono);font-size:10px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--text-faint);
+  }
+  .road-title{margin-top:8px;font-size:18px;font-weight:700;letter-spacing:-.005em}
+  .road-desc{margin-top:10px;color:var(--text-dim);font-size:14px;line-height:1.6}
+  .road-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+  .road-list li{
+    list-style:none;padding-left:18px;position:relative;
+    font-size:13px;color:var(--text-dim);line-height:1.55;
+  }
+  .road-list li::before{
+    content:"";position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--cyan);opacity:.7;
+  }
+
+  /* ─── privacy posture ─────────────────────── */
+  .posture{
+    padding:34px 28px;border-radius:22px;
+    background:
+      radial-gradient(600px 240px at 50% 0%,rgba(191,149,63,.08),transparent 70%),
+      linear-gradient(180deg,rgba(12,18,26,.72),rgba(8,12,18,.52));
+    border:1px solid var(--line);
+  }
+  .posture-grid{display:grid;grid-template-columns:1fr;gap:22px}
+  @media(min-width:820px){.posture-grid{grid-template-columns:repeat(3,1fr);gap:30px}}
+  .posture-col h4{
+    font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--text-faint);margin-bottom:14px;font-weight:600;
+  }
+  .posture-col h4 b{color:var(--cyan);font-weight:600}
+  .posture-col h4 b.gold{color:var(--gold-1)}
+  .posture-col ul{display:flex;flex-direction:column;gap:10px}
+  .posture-col li{
+    list-style:none;padding-left:20px;position:relative;
+    font-size:14px;color:var(--text-dim);line-height:1.55;
+  }
+  .posture-col li::before{
+    content:"·";position:absolute;left:6px;top:-2px;color:var(--cyan);font-size:22px;font-weight:700;
+  }
+  .posture-col.no li::before{color:var(--gold-1)}
+  .posture-col.zero li::before{content:"∅";font-size:14px;top:0;color:var(--danger)}
   .feat{
     padding:22px;border-radius:var(--radius);
     background:linear-gradient(180deg,rgba(12,18,26,.7),rgba(8,12,18,.5));
@@ -542,15 +613,17 @@
 <!-- ─── HERO ─── -->
 <header class="hero">
   <div class="wrap">
-    <span class="eyebrow"><span class="dot"></span>Kyber-1024 · Post-Quantum · by <span class="bn">AnA</span> Devyra</span>
+    <span class="eyebrow"><span class="dot"></span>Kyber-1024 · Post-Quantum · Sovereign Roadmap</span>
     <h1 class="h1">
       <span class="h1-gold">Secure Chat.</span><br>
       <span class="h1-cyan">Private by design.</span>
     </h1>
     <p class="lede">
-      <strong>Secure Chat by AnA Devyra</strong> — post-quantum encrypted messaging built for
-      people who don't want a profile. No phone number. No email. Just a node ID and
-      conversations that no one — not even us — can read.
+      <strong>Secure Chat by <span class="bn">AnA</span> Devyra</strong> — post-quantum encrypted
+      messaging built for people who don't want a profile. No phone number. No email. Just a node
+      ID and conversations no one — not even us — can read. With <strong>Stories</strong>,
+      <strong>voice transcribe + translate</strong>, <strong>encrypted groups</strong>, and
+      <strong>smart replies</strong> — all sealed end-to-end on your device.
     </p>
 
     <div class="meta-row">
@@ -564,7 +637,11 @@
       </span>
       <span class="chip">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M5 7v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7M9 7V5a3 3 0 0 1 6 0v2"/></svg>
-        Open download · no store
+        Direct APK · no store
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3l-9 9"/><path d="M14 3h7v7"/></svg>
+        On-device ML
       </span>
     </div>
 
@@ -574,22 +651,22 @@
         <div>
           <div class="dl-title">Get Secure Chat for Android</div>
           <p class="dl-sub">
-            Direct APK, hosted on GitHub. Install in under a minute. Works on any device
+            Direct APK, hosted on GitHub Releases. Install in under a minute. Works on any device
             running Android 8.0 or later.
           </p>
           <div class="dl-stats">
-            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.12</div></div>
+            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">v1.1</div></div>
             <div class="stat"><div class="stat-k">Android</div><div class="stat-v" id="stat-android">8.0+</div></div>
-            <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">157 MB</div></div>
+            <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">274 MB</div></div>
           </div>
         </div>
         <div class="dl-cta-wrap">
-          <a class="dl-cta" id="dl-cta" href="https://drive.google.com/uc?export=download&id=1lDyEbLnWGlaoEHhn7Dfzm2pGjBVJQRfd" rel="noopener">
+          <a class="dl-cta" id="dl-cta" href="https://github.com/anadevyra/anadevyra.github.io/releases/download/v1.1/secure-chat-v1.1.apk" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
             Download APK
           </a>
-          <div class="dl-meta">Direct · <b id="dl-updated">Latest build</b> · Always current</div>
-          <div class="dl-note">If Drive shows <em>"can't scan for viruses"</em> — tap <b>Download anyway</b>. Large APKs trigger that warning by default; it's safe.</div>
+          <div class="dl-meta">GitHub Releases · <b id="dl-updated">Updated 2026-06-02</b></div>
+          <div class="dl-note">Android may warn about installing from outside the Play Store — tap <b>Install anyway</b> and grant <em>Allow from this source</em> once. The APK is signed; you can verify the SHA in every release.</div>
         </div>
       </div>
     </div>
@@ -606,11 +683,11 @@
       </div>
       <div class="stat-big">
         <div class="stat-big-v">0</div>
-        <div class="stat-big-k">Phone Numbers</div>
+        <div class="stat-big-k">Server Plaintext</div>
       </div>
       <div class="stat-big">
-        <div class="stat-big-v">0</div>
-        <div class="stat-big-k">Trackers · Ads</div>
+        <div class="stat-big-v">30+</div>
+        <div class="stat-big-k">Shipped Features</div>
       </div>
       <div class="stat-big">
         <div class="stat-big-v gold">∞</div>
@@ -624,83 +701,149 @@
 <section id="features">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="section-eyebrow">Capabilities</div>
-      <h2 class="section-title">Encryption you can't see through.</h2>
-      <p class="section-sub">Every conversation is sealed with post-quantum cryptography. The server relays
-        bytes it cannot decrypt — and we collect no identity to begin with.</p>
+      <div class="section-eyebrow">Capabilities · v1.1</div>
+      <h2 class="section-title">A real messenger — sealed all the way down.</h2>
+      <p class="section-sub">Post-quantum crypto, on-device intelligence, and the everyday features
+        people actually use — Stories, voice transcribe, smart replies, encrypted groups. Sealed
+        before they leave your phone.</p>
     </div>
 
+    <div class="cluster-label reveal">Cryptography</div>
     <div class="features">
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <div class="feat-title">Kyber-1024 Post-Quantum</div>
-        <div class="feat-desc">ML-KEM-1024 key exchange, AES-256-GCM payload, Double Ratchet forward secrecy. Built to outlive quantum.</div>
+        <div class="feat-desc">ML-KEM-1024 key exchange — NIST-standardized. AES-256-GCM payload. Built to outlive quantum.</div>
       </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16"/><path d="M20 4v16"/><path d="M4 12h16"/><circle cx="8" cy="8" r="2"/><circle cx="16" cy="16" r="2"/></svg></div>
+        <div class="feat-title">Double Ratchet Forward Secrecy</div>
+        <div class="feat-desc">Every message gets a fresh ephemeral key. Compromise one — exactly one — message. Nothing before, nothing after.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div class="feat-title">Verified Contacts ✓</div>
+        <div class="feat-desc">On-device safety-number ratchet. Verify a contact once — the ✓ pill follows them through every chat, header, and contact list.</div>
+      </div>
+    </div>
 
+    <div class="cluster-label reveal">Identity</div>
+    <div class="features">
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="9" y1="14" x2="9" y2="14"/></svg></div>
         <div class="feat-title">No Phone Number</div>
         <div class="feat-desc">Sign up with a node ID — a cryptographic identifier you control. Your number stays your number.</div>
       </div>
-
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 6l8 7 8-7"/><line x1="2" y1="20" x2="22" y2="2"/></svg></div>
         <div class="feat-title">No Email Required</div>
         <div class="feat-desc">No inbox to compromise, no recovery loop to phish. Lose your device, lose the account — that's the point.</div>
       </div>
-
-      <div class="feat reveal">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
-        <div class="feat-title">Encrypted Voice Calls</div>
-        <div class="feat-desc">WebRTC with DTLS-SRTP. End-to-end encrypted, with a TURN fallback for restrictive networks.</div>
-      </div>
-
-      <div class="feat reveal">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div>
-        <div class="feat-title">Encrypted Video Calls</div>
-        <div class="feat-desc">Face-to-face that nobody intercepts. Same crypto stack as voice — no compromise for video.</div>
-      </div>
-
-      <div class="feat reveal">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><path d="M14 19c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/></svg></div>
-        <div class="feat-title">Group Messaging</div>
-        <div class="feat-desc">Encrypted group chats with sender authentication. Every participant gets their own ratchet.</div>
-      </div>
-
-      <div class="feat reveal">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg></div>
-        <div class="feat-title">Vanish Mode</div>
-        <div class="feat-desc">Disappearing messages with per-thread timers. They go — from both phones, and from the server too.</div>
-      </div>
-
-      <div class="feat reveal">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c3-6 7-9 10-9s7 3 10 9c-3 6-7 9-10 9s-7-3-10-9z"/><circle cx="12" cy="12" r="3"/><line x1="3" y1="3" x2="21" y2="21"/></svg></div>
-        <div class="feat-title">Stealth Tunnel</div>
-        <div class="feat-desc">Cover traffic and adaptive privacy patterns that blur the shape of your conversations.</div>
-      </div>
-
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/><circle cx="15" cy="15" r="1.5" fill="currentColor"/></svg></div>
         <div class="feat-title">Decoy Mode</div>
         <div class="feat-desc">A second PIN reveals a separate, innocuous account. Plausible deniability, built in.</div>
       </div>
+    </div>
 
+    <div class="cluster-label reveal">Conversations</div>
+    <div class="features">
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="feat-title">Stories ✨</div>
+        <div class="feat-desc">24-hour Stories with 10 gradient backgrounds, emoji reactions, viewer stats, and per-contact privacy. Same E2E pipeline as DMs — the server is blind.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><line x1="12" y1="18" x2="12" y2="22"/></svg></div>
+        <div class="feat-title">Voice Notes + Transcribe</div>
+        <div class="feat-desc">Record, send, transcribe on-device with one tap. Translate to 17+ languages — including Hindi, Russian, Spanish, Arabic — all locally. Audio never leaves the encrypted envelope.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10"/><path d="M7 12h6"/><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-4 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></div>
+        <div class="feat-title">Smart Replies</div>
+        <div class="feat-desc">Multilingual ML Kit suggestions appear over the composer for fresh messages and pop on tap for any older one. Inference 100% on-device — your text never leaves the phone.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4 12h6"/><path d="M14 12h6"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="feat-title">Send Effects</div>
+        <div class="feat-desc">Celebration overlays — confetti, hearts, fireworks — triggered by phrases or sent on-demand. Pure on-device animation; nothing extra goes through the server.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <div class="feat-title">Vanish Mode</div>
+        <div class="feat-desc">Disappearing messages with per-thread timers. They go — from both phones, and from the server too.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><path d="M14 19c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/></svg></div>
+        <div class="feat-title">Encrypted Groups</div>
+        <div class="feat-desc">Group chats with sender authentication, per-participant ratchets, in-group voice transcribe + translate, and send effects for everyone.</div>
+      </div>
+    </div>
+
+    <div class="cluster-label reveal">Calls</div>
+    <div class="features">
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+        <div class="feat-title">Encrypted Voice Calls</div>
+        <div class="feat-desc">WebRTC with DTLS-SRTP. End-to-end encrypted, with a TURN fallback for restrictive networks.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div>
+        <div class="feat-title">Encrypted Video Calls</div>
+        <div class="feat-desc">Face-to-face that nobody intercepts. Same crypto stack as voice — no compromise for video.</div>
+      </div>
+    </div>
+
+    <div class="cluster-label reveal">Power user</div>
+    <div class="features">
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+        <div class="feat-title">Chat Folders</div>
+        <div class="feat-desc">Custom folders organize chats — work, family, signal-only. Switch with a swipe; never lose a thread to the scroll.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M16 18h5"/><path d="M18.5 15.5v5"/></svg></div>
+        <div class="feat-title">Multi-select Messages</div>
+        <div class="feat-desc">Long-press any message, tap more, bulk forward · copy · delete · star across a whole thread.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.2" fill="currentColor"/></svg></div>
+        <div class="feat-title">Passcode per Chat</div>
+        <div class="feat-desc">Lock individual chats with their own PIN. Even someone with your phone unlocked can't open them.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg></div>
+        <div class="feat-title">Photo OCR</div>
+        <div class="feat-desc">Extract text from any received image — on-device. Copy a phone number, an address, a code without re-typing.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/><path d="M3 6h14"/><path d="M3 18h7"/></svg></div>
+        <div class="feat-title">Forward Count Pill</div>
+        <div class="feat-desc">See how many times a message has been forwarded. Decide for yourself how much weight to give it.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/><path d="M9 8l4 6"/></svg></div>
+        <div class="feat-title">Global Regex Search</div>
+        <div class="feat-desc">Power-user toggle: search across every chat with regular expressions. Local, indexed, instant.</div>
+      </div>
+    </div>
+
+    <div class="cluster-label reveal">Infrastructure</div>
+    <div class="features">
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg></div>
         <div class="feat-title">Self-Hosted Server</div>
-        <div class="feat-desc">Don't trust ours? Run your own. The server is open and ships with a one-line deploy.</div>
+        <div class="feat-desc">Don't trust ours? Run your own. The server is open and ships with a one-line deploy. Friends and family join your relay.</div>
       </div>
-
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/><line x1="4" y1="20" x2="20" y2="4"/></svg></div>
         <div class="feat-title">Zero Metadata</div>
-        <div class="feat-desc">No access logs. Volatile journald. Hardened server config. Even <em>we</em> can't say who called whom.</div>
+        <div class="feat-desc">No access logs. Volatile journald. 12 auto-cleanup layers including 24h status sweep, disk-pressure shred, token + pending-msg TTLs.</div>
       </div>
-
       <div class="feat reveal">
-        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></div>
-        <div class="feat-title">Privacy by Default</div>
-        <div class="feat-desc">Built for anyone who treats privacy as a baseline — not an upgrade, not a feature you have to enable.</div>
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c3-6 7-9 10-9s7 3 10 9c-3 6-7 9-10 9s-7-3-10-9z"/><circle cx="12" cy="12" r="3"/><line x1="3" y1="3" x2="21" y2="21"/></svg></div>
+        <div class="feat-title">Stealth Tunnel</div>
+        <div class="feat-desc">Cover traffic and adaptive privacy patterns that blur the shape of your conversations.</div>
       </div>
     </div>
   </div>
@@ -743,6 +886,88 @@
   </div>
 </section>
 
+<!-- ─── ROADMAP ─── -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Roadmap</div>
+      <h2 class="section-title">From Mumbai to Switzerland.</h2>
+      <p class="section-sub">Today the server lives in Mumbai. The plan is honest, dated, and small enough to actually ship.</p>
+    </div>
+    <div class="roadmap-grid">
+      <div class="road-card now reveal">
+        <div class="road-when">Now · June 2026</div>
+        <div class="road-title">Production — Mumbai</div>
+        <div class="road-desc">GCP Mumbai with a custom <span style="color:var(--cyan)">api.anadevyra.com</span> domain. Sub-200&nbsp;ms in India, low-200&nbsp;ms global. Hardened, monitored, swept.</div>
+        <ul class="road-list">
+          <li>12 auto-cleanup layers — status TTL, disk-pressure sweep, log shred</li>
+          <li>Let's Encrypt TLS, sovereign DNS via BigRock</li>
+          <li>Volatile journald · no access logs · nothing indexable</li>
+        </ul>
+      </div>
+      <div class="road-card reveal">
+        <div class="road-when">Next · Q3 2026</div>
+        <div class="road-title">Switzerland mirror</div>
+        <div class="road-desc">Second region on GCP Zurich. 5-minute cross-replication of vault, pending queue, and identity. Auto-failover at the discovery layer.</div>
+        <ul class="road-list">
+          <li>No APK push needed — migration happens at the gist layer</li>
+          <li>Old <code style="font-family:var(--mono);font-size:12px;color:var(--cyan)">.nip.io</code> URL kept serving forever for legacy installs</li>
+          <li>Mumbai becomes secondary; reverse-rsync starts</li>
+        </ul>
+      </div>
+      <div class="road-card reveal">
+        <div class="road-when">Sovereign · Q4 2026</div>
+        <div class="road-title">Off cloud, onto Swiss VPS</div>
+        <div class="road-desc">Move primary off GCP to Infomaniak Switzerland. Real <b style="color:var(--gold-2);font-weight:700">FADP jurisdiction</b> — outside US CLOUD Act reach. Volunteer-runnable.</div>
+        <ul class="road-list">
+          <li>Bring-your-own-server stays one command — fork the deploy</li>
+          <li>Community can mirror; we publish the topology</li>
+          <li>End-state: no single provider can subpoena what isn't there</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRIVACY POSTURE ─── -->
+<section id="posture">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Privacy posture</div>
+      <h2 class="section-title">Honest about what the server sees.</h2>
+      <p class="section-sub">No "trust us" copy. Here's exactly what the server can and can't see — and what survives a subpoena.</p>
+    </div>
+    <div class="posture reveal">
+      <div class="posture-grid">
+        <div class="posture-col">
+          <h4><b>Server can see</b></h4>
+          <ul>
+            <li>Encrypted bytes for delivery — never plaintext</li>
+            <li>A short queue of pending recipient IDs — never content</li>
+            <li>Volatile journald entries that rotate to <code style="font-family:var(--mono);color:var(--text)">/dev/null</code></li>
+          </ul>
+        </div>
+        <div class="posture-col no">
+          <h4><b class="gold">Server can't see</b></h4>
+          <ul>
+            <li>Your messages — sealed before they leave your phone</li>
+            <li>Your contacts — no contact list lives server-side</li>
+            <li>Your name, phone, email — we never asked</li>
+          </ul>
+        </div>
+        <div class="posture-col zero">
+          <h4>What survives a court order</h4>
+          <ul>
+            <li>Nothing useful — encrypted bytes are unrecoverable without the recipient's private key</li>
+            <li>No identity bound to any account</li>
+            <li>No retained access logs to correlate against</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ─── COMPARISON ─── -->
 <section id="compare">
   <div class="wrap">
@@ -773,6 +998,9 @@
             <tr><td>Volatile, shredded server logs</td><td class="us yes">✓</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td></tr>
             <tr><td>Decoy mode (plausible deniability)</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
             <tr><td>Vanish mode (per-thread timers)</td><td class="us yes">✓</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>On-device voice transcribe + translate</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="partial">cloud only</td></tr>
+            <tr><td>Stories with E2E reactions + viewer stats</td><td class="us yes">✓</td><td class="partial">basic</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+            <tr><td>Sovereign multi-region roadmap</td><td class="us yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
           </tbody>
         </table>
       </div>
@@ -841,6 +1069,30 @@
         <summary class="faq-q">Is it free?</summary>
         <div class="faq-a">Encrypted chat, voice, video, and groups: free forever. A premium tier is coming with optional LAN P2P, mesh routing, and multi-device sync — features that offload work from servers rather than add cost.</div>
       </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">What's new in v1.1?</summary>
+        <div class="faq-a">A lot. <strong>Stories</strong> with 10 gradient backgrounds, reactions, viewer stats and 24h auto-vanish. <strong>Voice notes + on-device transcribe + translate</strong> to 17+ languages — works inside groups too. <strong>Smart Replies</strong> via on-device ML Kit, multilingual, on tap. <strong>Send effects</strong> for celebration moments. <strong>Verified contact pills</strong>. <strong>Chat folders</strong>, <strong>multi-select</strong>, <strong>passcode-per-chat</strong>, <strong>photo OCR</strong>, and a <strong>sovereign domain</strong> — that's why you're on <span style="color:var(--cyan)">anadevyra.com</span> reading this.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Where is the APK actually hosted?</summary>
+        <div class="faq-a"><strong>GitHub Releases.</strong> Free, fast, immutable per release tag, with a published SHA you can verify. The site's download button just resolves to <code style="font-family:var(--mono);font-size:12px;color:var(--cyan)">github.com/anadevyra/anadevyra.github.io/releases</code>. We don't use Google Drive anymore — it added warnings and friction for nothing.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">How does on-device transcribe work?</summary>
+        <div class="faq-a">Your phone uses <strong>Google ML Kit speech recognition</strong> with the model running locally. Voice notes stay inside their AES-256-GCM envelope until transcribe is invoked; the transcript is produced on-device and never sent anywhere. Translation uses ML Kit's offline language packs the same way. The server never sees audio or text — just sealed bytes for delivery.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">What's the Switzerland plan?</summary>
+        <div class="faq-a">Q3 2026: stand up a mirror in <strong>Zurich on GCP</strong> with 5-min cross-replication. Auto-failover at the discovery layer means every installed app migrates without an APK push. Q4 2026: move the primary off GCP to <strong>Infomaniak Switzerland VPS</strong> — real <strong>FADP jurisdiction</strong>, outside US CLOUD Act reach. The deploy is fork-able; volunteers can run their own mirror.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">What will be in premium?</summary>
+        <div class="faq-a">The plan: optional <strong>LAN P2P routing</strong> (chats hop device-to-device on the same WiFi without touching a server), <strong>mesh routing</strong> across nearby installs, and <strong>multi-device sync</strong> over an end-to-end encrypted channel. Features that <em>offload work</em>, not gatekeepers in front of basics.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Why is the website on <span class="bn">anadevyra</span>.com now?</summary>
+        <div class="faq-a">Sovereign DNS. <strong>anadevyra.com</strong> is owned outright with a 12-month term we renew ourselves — no platform can take it from us. The chat backend lives at <code style="font-family:var(--mono);font-size:12px;color:var(--cyan)">api.anadevyra.com</code> on the same domain, so brand and infrastructure stay aligned across the roadmap.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -866,19 +1118,23 @@
       <div class="foot-l">
         <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
         <div>
-          <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by AnA Devyra</span></div>
-          <div class="foot-meta">2.40.12 · Updated 2026-05-31</div>
+          <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
+          <div class="foot-meta">v1.1 · Updated 2026-06-02</div>
         </div>
       </div>
       <div class="foot-r">
-        <a href="https://github.com/anadevyra/anadevyra.github.io/issues" rel="noopener">Issues &amp; feedback</a>
+        <a href="#roadmap">Roadmap</a>
         <span style="opacity:.3">·</span>
-        <a href="https://github.com/anadevyra/anadevyra.github.io/releases" rel="noopener">All releases</a>
+        <a href="#posture">Privacy</a>
+        <span style="opacity:.3">·</span>
+        <a href="https://github.com/anadevyra/anadevyra.github.io/releases" rel="noopener">Releases</a>
+        <span style="opacity:.3">·</span>
+        <a href="https://github.com/anadevyra/anadevyra.github.io/issues" rel="noopener">Issues</a>
         <span style="opacity:.3">·</span>
         <a href="#download">Download</a>
       </div>
     </div>
-    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Secured by <b>Kyber-1024</b> Post-Quantum Encryption</div>
+    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Secured by <b>Kyber-1024</b> Post-Quantum Encryption · <a href="https://anadevyra.com" style="color:inherit;text-decoration:none;letter-spacing:.2em">anadevyra.com</a></div>
   </div>
 </footer>
 
