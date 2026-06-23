@@ -202,6 +202,9 @@
     color:var(--text-faint);text-align:center;
   }
   .dl-meta b{color:var(--cyan);font-weight:600}
+  .dl-alt{text-align:center;font-size:13px;line-height:1.5;color:var(--text-faint)}
+  .dl-alt a{color:var(--cyan);font-weight:600;text-decoration:none;border-bottom:1px dotted rgba(var(--accent-rgb),.4)}
+  .dl-alt a:hover{border-bottom-color:var(--cyan)}
   .dl-note{
     margin-top:6px;text-align:center;font-size:12px;line-height:1.5;color:var(--text-faint);
     padding:10px 12px;border-radius:10px;

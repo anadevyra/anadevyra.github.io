@@ -50,6 +50,9 @@
   .back:hover{opacity:1;color:#00f2ff}
   .countdown{display:block;margin-top:14px;font-size:11px;color:#6c829c;
     letter-spacing:.16em;text-transform:uppercase;min-height:14px}
+  .altdl{margin-top:14px;font-size:12px;color:#6c829c;letter-spacing:.02em}
+  .altdl a{color:#00f2ff;text-decoration:none;border-bottom:1px dotted rgba(0,242,255,.35)}
+  .altdl a:hover{border-bottom-color:#00f2ff}
 </style>
 </head>
 <body>
@@ -57,12 +60,13 @@
     <div class="brand">AnA Devyra · Secure Chat</div>
     <h1>Get the APK</h1>
     <p class="sub">Latest release build, hosted on GitHub Releases.</p>
-    <div class="ver">VERSION <span id="ver">2.40.29-e</span> · <span id="size">275</span> MB</div>
-    <a class="btn" id="dl" href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-release.apk" rel="noopener">
+    <div class="ver">VERSION <span id="ver">2.40.208</span> · <span id="size">109</span> MB · NEW PHONES</div>
+    <a class="btn" id="dl" href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-arm64-v8a-release.apk" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
       Download APK
     </a>
     <div class="countdown" id="cd">Starting download…</div>
+    <div class="altdl">On an older phone? <a id="altlink" href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-armeabi-v7a-release.apk" rel="noopener">Get the lighter build (<span id="altsize">104</span> MB) ↓</a></div>
     <div class="hint">Android may warn about installing from outside the Play Store — tap <em>Install anyway</em> and grant <em>Allow from this source</em> once. APK is signed; verify the SHA in the release notes.</div>
     <a class="back" href="/">← Back to site</a>
   </div>
@@ -74,8 +78,14 @@
     .then(d=>{
       if(!d) return;
       if(d.version)      document.getElementById('ver').textContent = d.version;
-      if(d.size_mb)      document.getElementById('size').textContent = d.size_mb;
-      if(d.download_url) document.getElementById('dl').href = d.download_url;
+      const primary = (d.arm64 && d.arm64.url) || d.download_url;
+      const primarySize = (d.arm64 && d.arm64.size_mb) || d.size_mb;
+      if(primarySize)    document.getElementById('size').textContent = primarySize;
+      if(primary)        document.getElementById('dl').href = primary;
+      if(d.v7a){
+        const al = document.getElementById('altlink'); if(al && d.v7a.url) al.href = d.v7a.url;
+        const az = document.getElementById('altsize'); if(az && d.v7a.size_mb) az.textContent = d.v7a.size_mb;
+      }
     })
     .catch(()=>{});
 

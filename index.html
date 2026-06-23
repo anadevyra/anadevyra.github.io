@@ -95,7 +95,7 @@
       <a href="/contact/" class="nav-link">Contact</a>
     </div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀</button>
-    <a href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-release.apk" id="nav-cta" class="nav-cta" rel="noopener">Download APK</a>
+    <a href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-arm64-v8a-release.apk" id="nav-cta" class="nav-cta" rel="noopener">Download APK</a>
   </div>
 </nav>
 
@@ -144,17 +144,18 @@
             running Android 8.0 or later.
           </p>
           <div class="dl-stats">
-            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.179</div></div>
+            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.208</div></div>
             <div class="stat"><div class="stat-k">Android</div><div class="stat-v" id="stat-android">8.0+</div></div>
-            <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">274 MB</div></div>
+            <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">109 MB</div></div>
           </div>
         </div>
         <div class="dl-cta-wrap">
-          <a class="dl-cta" id="dl-cta" href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-release.apk" rel="noopener">
+          <a class="dl-cta" id="dl-cta" href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-arm64-v8a-release.apk" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
             Download APK
           </a>
-          <div class="dl-meta">GitHub Releases · <b id="dl-updated">Updated 2026-06-02</b></div>
+          <div class="dl-meta">New phones · GitHub Releases · <b id="dl-updated">Updated 2026-06-23</b></div>
+          <div class="dl-alt">On an older phone? <a id="dl-alt-link" href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-armeabi-v7a-release.apk" rel="noopener">Get the lighter build (<span id="dl-alt-size">104</span> MB) ↓</a></div>
           <div class="dl-note">Android may warn about installing from outside the Play Store — tap <b>Install anyway</b> and grant <em>Allow from this source</em> once. The APK is signed; you can verify the SHA in every release.</div>
         </div>
       </div>
@@ -833,6 +834,10 @@
         <div class="faq-a"><strong>GitHub Releases.</strong> Free, fast, immutable per release tag, with a published SHA you can verify. The site's download button just resolves to <code style="font-family:var(--mono);font-size:12px;color:var(--cyan)">github.com/anadevyra/anadevyra.github.io/releases</code>. We don't use Google Drive anymore — it added warnings and friction for nothing.</div>
       </details>
       <details class="faq-item reveal">
+        <summary class="faq-q">Which build should I download?</summary>
+        <div class="faq-a">The main <strong>Download</strong> button gives you the build for <strong>newer phones</strong> (64-bit, virtually every phone from the last several years). If you're on an <strong>older phone</strong>, use the <em>lighter build</em> link under the button — it's a smaller, 32-bit version for legacy devices. Both are the same app, same version; pick the lighter one only if the main build won't install.</div>
+      </details>
+      <details class="faq-item reveal">
         <summary class="faq-q">How does on-device transcribe work?</summary>
         <div class="faq-a">Your phone uses <strong>Google ML Kit speech recognition</strong> with the model running locally. Voice notes stay inside their AES-256-GCM envelope until transcribe is invoked; the transcript is produced on-device and never sent anywhere. Translation uses ML Kit's offline language packs the same way. The server never sees audio or text — just sealed bytes for delivery.</div>
       </details>
@@ -874,7 +879,7 @@
         <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
         <div>
           <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
-          <div class="foot-meta">2.40.179 · Updated 2026-06-19</div>
+          <div class="foot-meta">2.40.208 · Updated 2026-06-23</div>
         </div>
       </div>
       <div class="foot-r">
@@ -911,14 +916,20 @@
       if(d.version)      $('stat-version').textContent = d.version;
       if(d.android_min)  $('stat-android').textContent = d.android_min;
       if(d.size_mb)      $('stat-size').textContent = d.size_mb + ' MB';
-      if(d.download_url){
-        $('dl-cta').href = d.download_url;
-        const nav = $('nav-cta'); if(nav) nav.href = d.download_url;
+      const primary = (d.arm64 && d.arm64.url) || d.download_url;
+      if(primary){
+        $('dl-cta').href = primary;
+        const nav = $('nav-cta'); if(nav) nav.href = primary;
+      }
+      if(d.arm64 && d.arm64.size_mb) $('stat-size').textContent = d.arm64.size_mb + ' MB';
+      if(d.v7a){
+        const alt = $('dl-alt-link'); if(alt && d.v7a.url) alt.href = d.v7a.url;
+        const as = $('dl-alt-size'); if(as && d.v7a.size_mb) as.textContent = d.v7a.size_mb;
       }
       if(d.updated){
         $('dl-updated').textContent = 'Updated ' + d.updated;
         const fm = document.querySelector('.foot-meta');
-        if(fm) fm.textContent = (d.version || '2.40.179') + ' · Updated ' + d.updated;
+        if(fm) fm.textContent = (d.version || '2.40.208') + ' · Updated ' + d.updated;
       }
     })
     .catch(()=>{});
