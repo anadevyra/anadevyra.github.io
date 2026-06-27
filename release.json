@@ -1,17 +1,17 @@
 {
-  "version": "2.40.208",
+  "version": "2.40.226",
   "android_min": "8.0+",
-  "size_mb": 109,
+  "size_mb": 110,
   "download_url": "https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-arm64-v8a-release.apk",
   "arm64": {
     "label": "New phones",
-    "size_mb": 109,
+    "size_mb": 110,
     "url": "https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-arm64-v8a-release.apk"
   },
   "v7a": {
     "label": "Older phones",
-    "size_mb": 104,
+    "size_mb": 105,
     "url": "https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-armeabi-v7a-release.apk"
   },
-  "updated": "2026-06-23"
+  "updated": "2026-06-27"
 }
