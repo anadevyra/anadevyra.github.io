@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<script>(()=>{try{var t=localStorage.getItem('theme');var dark=(t==='cyber');if(!dark)document.documentElement.setAttribute('data-theme','clarity');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',dark?'#010204':'#FFFFFF');}catch(e){}})();</script>
+<meta name="description" content="How Secure Chat by AnA Devyra protects you: post-quantum encrypted messaging (ML-KEM-1024), Double Ratchet, AES-256-GCM, end-to-end media, WebRTC-secured calls, decoy mode — and an honest account of what the server can and can't see.">
+<meta property="og:title" content="Security — Secure Chat by AnA Devyra">
+<meta property="og:description" content="No magic words, just the math. Post-quantum encrypted messaging, WebRTC-secured calls, on-device protections, and an honest look at what a data request would actually find.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anadevyra.com/security/">
+<meta property="og:image" content="https://anadevyra.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Security — Secure Chat by AnA Devyra">
+<meta name="twitter:description" content="How the encryption actually works — and what we're honest about.">
+<meta name="twitter:image" content="https://anadevyra.com/og-image.png">
+<link rel="canonical" href="https://anadevyra.com/security/">
+<title>Security — Secure Chat by AnA Devyra</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='%23010204'/><path d='M32 6 a26 26 0 0 1 0 52' fill='none' stroke='%23BF953F' stroke-width='4' stroke-linecap='round'/><path d='M32 58 a26 26 0 0 1 0 -52' fill='none' stroke='%23AA771C' stroke-width='4' stroke-linecap='round' opacity='.7'/><path d='M14 32 a18 18 0 0 1 18 -18' fill='none' stroke='%2300f2ff' stroke-width='3' stroke-linecap='round'/><path d='M50 32 a14 14 0 0 1 -14 14' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round'/><circle cx='32' cy='32' r='7' fill='%23FCF6BA'/></svg>">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<div class="grid-layer"></div>
+<div class="scan-line"></div>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
+      <span class="brand-name">SECURE CHAT <span class="brand-sub">by <span class="bn">AnA</span> Devyra</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/security/" class="nav-link active">Security</a>
+      <a href="/business/" class="nav-link">For teams</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀</button>
+    <a href="/download/" id="nav-cta" class="nav-cta">Download APK</a>
+  </div>
+</nav>
+
+<!-- ─── PAGE HERO ─── -->
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Security · How it actually works</span>
+    <h1>
+      <span class="h1-gold">Security you can reason about.</span><br>
+      <span class="h1-cyan">No magic words. Just the math.</span>
+    </h1>
+    <p class="lede">
+      Every privacy app says it's secure. This page is the opposite of a slogan — it spells out
+      exactly which math protects what, draws a hard line between your <strong>messages</strong> and
+      your <strong>call media</strong>, and tells you plainly what the server can and can't see.
+      If a section sounds modest, that's on purpose. We'd rather under-promise than overclaim.
+    </p>
+  </div>
+</header>
+
+<!-- ─── ENCRYPTION STACK ─── -->
+<section id="encryption">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">The stack</div>
+      <h2 class="section-title">What protects every message.</h2>
+      <p class="section-sub">Your messages and their attachments are end-to-end encrypted. Only the devices in a conversation ever hold the keys.</p>
+    </div>
+    <div class="features">
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4z"/></svg></div>
+        <div class="feat-title">Post-quantum key exchange</div>
+        <div class="feat-desc">Keys are established with <strong>ML-KEM-1024</strong> (Kyber-1024), the NIST-standardized post-quantum KEM. A conversation set up today stays private even against a future quantum computer recording it now to crack later.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 8-8 8 8 0 0 1 8 8"/><path d="M20 12a8 8 0 0 1-8 8 8 8 0 0 1-8-8"/><path d="M12 8v4l3 2"/></svg></div>
+        <div class="feat-title">Double Ratchet, per message</div>
+        <div class="feat-desc">Session keys move forward with every message. Compromising one key doesn't unlock the messages before or after it — that's forward secrecy, applied to each chat continuously.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <div class="feat-title">AES-256-GCM sealed content</div>
+        <div class="feat-desc">The message body is sealed with authenticated AES-256-GCM before it ever leaves your phone. Tampered or swapped ciphertext fails its integrity tag and is rejected — not silently shown.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15l-5-5L5 21"/><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/></svg></div>
+        <div class="feat-title">End-to-end media</div>
+        <div class="feat-desc">Photos, video, voice notes and documents are encrypted on-device with a fresh per-file AES-256-GCM key; only ciphertext is uploaded. The server stores an opaque blob it cannot read — in testing, a server-held file simply <em>fails</em> to decrypt. That failure is the proof.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVER POSTURE ─── -->
+<section id="server">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">The server</div>
+      <h2 class="section-title">Honest about what the relay sees.</h2>
+      <p class="section-sub">A relay has to move encrypted bytes from one device to another. Here is exactly where that line sits — including the metadata we <em>can't</em> hide yet.</p>
+    </div>
+    <div class="posture reveal">
+      <div class="posture-grid">
+        <div class="posture-col">
+          <h4><b>The server can see</b></h4>
+          <ul>
+            <li>Encrypted bytes queued for delivery — never plaintext</li>
+            <li>The recipient node ID a sealed packet is routed to, so it can be delivered</li>
+            <li>Coarse online/offline presence — unless you hide it</li>
+            <li>Ephemeral system logs that are volatile and not retained</li>
+          </ul>
+        </div>
+        <div class="posture-col no">
+          <h4><b class="gold">The server can't see</b></h4>
+          <ul>
+            <li>Your messages, media, or call audio and video — all sealed end to end</li>
+            <li>Your contact list — it lives on your device, not on the server</li>
+            <li>Your name, phone, or email — we never asked for any of them</li>
+            <li>Your private keys — they never leave your phone</li>
+          </ul>
+        </div>
+        <div class="posture-col zero">
+          <h4>What a data request would find</h4>
+          <ul>
+            <li>Encrypted bytes that are unrecoverable without the recipient's private key</li>
+            <li>No real-world identity bound to any account</li>
+            <li>No retained access logs to correlate a person against</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CALLS / WEBRTC ─── -->
+<section id="calls">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Calls</div>
+      <h2 class="section-title">Where messages and calls differ.</h2>
+      <p class="section-sub">We won't blur two different technologies to sound more impressive. Here's the precise truth.</p>
+    </div>
+    <div class="inner-card reveal">
+      <p class="about-body">
+        <strong>Setting up a call</strong> — the ring, the agreement on keys — runs through the same
+        post-quantum-secured signaling channel as your chats.
+        <br><br>
+        <strong>The live audio and video themselves</strong> travel as a real-time WebRTC media
+        stream, encrypted in transit with <strong>DTLS-SRTP</strong> — the standard encryption
+        for real-time media. So your <em>messages</em> get the post-quantum ratchet;
+        your <em>call media</em> gets WebRTC's encrypted transport. Two different jobs, two
+        appropriate tools — stated plainly rather than marketed as one.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ON-DEVICE PROTECTIONS ─── -->
+<section id="device">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">On your device</div>
+      <h2 class="section-title">Protection past the encryption.</h2>
+      <p class="section-sub">Encryption guards the wire. These guard the phone in your hand — and the moment someone else is holding it.</p>
+    </div>
+    <div class="features">
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="3"/><path d="M5 21v-1a7 7 0 0 1 14 0v1"/><path d="M12 2v3"/></svg></div>
+        <div class="feat-title">App lock &amp; biometric</div>
+        <div class="feat-desc">Gate the whole app behind a fingerprint or face. A lockscreen privacy cover hides message content from notifications and the app switcher while you're away.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 8-9 9-5.5-1-9-4-9-9V6l9-3 9 3z"/></svg></div>
+        <div class="feat-title">Decoy &amp; panic mode</div>
+        <div class="feat-desc">A separate decoy PIN opens a believable second app — fake chats, fake call log, your real conversations nowhere in sight. A panic action can wipe on the spot. Plausible deniability when it counts.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16"/><path d="M9 15h2"/></svg></div>
+        <div class="feat-title">Hidden chats vault</div>
+        <div class="feat-desc">PIN-locked chats vanish from your main list behind a disguised label of your choosing — so a glance at your phone reveals nothing, and even the vault itself doesn't look like one.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><line x1="3" y1="3" x2="21" y2="21"/></svg></div>
+        <div class="feat-title">Metadata hygiene</div>
+        <div class="feat-desc">Screenshot protection, GPS and EXIF data stripped from photos before they send, ghost mode, and full control over your last-seen visibility. Less trail, by default.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NOTIFICATIONS ─── -->
+<section id="notifications">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Notifications</div>
+      <h2 class="section-title">A wake-up, not a window.</h2>
+      <p class="section-sub">Push is the one place an encrypted app can quietly leak. Here's our posture.</p>
+    </div>
+    <div class="inner-card reveal">
+      <p class="about-body">
+        The readable text you see in a notification is decrypted <strong>on your own device</strong> —
+        it isn't carried through the push in the clear.
+        <br><br>
+        And push delivery is <strong>optional</strong>. You can run in a strict mode with no push
+        token registered at all, trading instant alerts for the smallest possible delivery footprint.
+        Either way: no advertising ID, and no analytics SDK riding alongside the app.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HONEST LIMITS ─── -->
+<section id="limits">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Honest limits</div>
+      <h2 class="section-title">What we don't claim.</h2>
+      <p class="section-sub">Nothing here is unhackable, and we won't pretend otherwise. These are the edges, stated up front.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary class="faq-q">The relay can see <em>that</em> two node IDs exchanged sealed packets</summary>
+        <div class="faq-a">To deliver a message, the server must know which node ID it's queued for. It never learns <strong>what</strong> was said — only that two IDs traded encrypted bytes. Sender-anonymizing delivery ("sealed sender") is on the roadmap, not shipped. Treat routing metadata as visible; treat content as not.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Signed voice notes verify the device, not a courtroom</summary>
+        <div class="faq-a">A 1-to-1 voice note carries a cryptographic seal so your contact's app can confirm it really came from their device and wasn't swapped or AI-faked. Group signing and court-grade non-repudiation are future work — the current seal is receiver-side verification, not legal proof.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Public broadcast channels are public by design</summary>
+        <div class="faq-a">Anything posted to an open, broadcast-style channel is readable by anyone who can see that channel — there's no single recipient to seal it to. The end-to-end-encrypted part is your private 1-to-1 chats, groups, and private channels.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">Lose your device, lose the account</summary>
+        <div class="faq-a">There's no server-side recovery loop — by design, because a recovery loop is also an attacker's way in. Use the in-app encrypted session export to keep a backup in storage you control. No magic reset, no password-reset email, no back door.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">We're still hardening</summary>
+        <div class="faq-a">Secure Chat is in active security hardening ahead of a wider launch. We add protections continuously and would rather tell you where the edges are than paper over them. Found something? The disclosure line below is real and read by a human.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DISCLOSURE / CTA ─── -->
+<section id="disclosure">
+  <div class="wrap">
+    <div class="about-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="about-body">
+        If you've found a weakness, we want to hear it before anyone else does. Reach the security
+        team directly at <a href="mailto:security@anadevyra.com" style="color:var(--cyan);text-decoration:none">security@anadevyra.com</a>.
+        Report in good faith, give us a reasonable window to fix it, and we'll work it with you —
+        no lawyers, no theatrics. The full terms are on our
+        <a href="/responsible-disclosure/" style="color:var(--cyan);text-decoration:none">responsible-disclosure page</a>.
+      </p>
+      <div class="about-sig">— <span class="bn">AnA</span> Devyra Security</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-l">
+        <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
+        <div>
+          <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
+          <div class="foot-meta">Security model · How it works</div>
+        </div>
+      </div>
+      <div class="foot-r">
+        <a href="/">Home</a>
+        <span style="opacity:.3">·</span>
+        <a href="/about/">About</a>
+        <span style="opacity:.3">·</span>
+        <a href="/security/">Security</a>
+        <span style="opacity:.3">·</span>
+        <a href="/business/">For teams</a>
+        <span style="opacity:.3">·</span>
+        <a href="/contact/">Contact</a>
+        <span style="opacity:.3">·</span>
+        <a href="https://github.com/anadevyra/anadevyra.github.io/releases" rel="noopener">Releases</a>
+        <span style="opacity:.3">·</span>
+        <a href="/#download">Download</a>
+      </div>
+    </div>
+    <div class="foot-legal" style="text-align:center;margin-top:16px;font-size:12.5px;color:var(--text-faint);letter-spacing:.02em">
+      <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy</a> · <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a> · <a href="/support/" style="color:inherit;text-decoration:none">Support</a> · <a href="/responsible-disclosure/" style="color:inherit;text-decoration:none">Responsible Disclosure</a>
+    </div>
+    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Post-quantum message encryption · <b>ML-KEM-1024</b> · <a href="https://anadevyra.com" style="color:inherit;text-decoration:none;letter-spacing:.2em">anadevyra.com</a></div>
+  </div>
+</footer>
+
+<button id="to-top" class="to-top" aria-label="Back to top">↑</button>
+
+<script>
+  const io=new IntersectionObserver((ents)=>{
+    ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+  },{threshold:0,rootMargin:"0px 0px 200px 0px"});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const tt=document.getElementById('to-top');
+  window.addEventListener('scroll',()=>{if(tt) tt.classList.toggle('on',window.scrollY>400)},{passive:true});
+  if(tt) tt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  const themeBtn=document.getElementById('theme-toggle');
+  function syncThemeIcon(){
+    const isClarity=document.documentElement.getAttribute('data-theme')==='clarity';
+    if(themeBtn) themeBtn.textContent=isClarity?'☾':'☀';
+  }
+  syncThemeIcon();
+  if(themeBtn) themeBtn.addEventListener('click',()=>{
+    const root=document.documentElement;
+    const next=root.getAttribute('data-theme')==='clarity'?'cyber':'clarity';
+    if(next==='clarity') root.setAttribute('data-theme','clarity');
+    else root.removeAttribute('data-theme');
+    try{localStorage.setItem('theme',next);}catch(e){}var mtc=document.querySelector('meta[name=theme-color]');if(mtc)mtc.setAttribute('content',next==='clarity'?'#FFFFFF':'#010204');
+    syncThemeIcon();
+  });
+</script>
+</body>
+</html>

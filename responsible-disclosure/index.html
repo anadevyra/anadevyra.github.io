@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFFFFF">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate">
+<script>(()=>{try{var t=localStorage.getItem('theme');var dark=(t==='cyber');if(!dark)document.documentElement.setAttribute('data-theme','clarity');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',dark?'#010204':'#FFFFFF');}catch(e){}})();</script>
+<meta name="description" content="Report a security vulnerability in Secure Chat by AnA Devyra. Coordinated disclosure policy, scope, safe harbor for good-faith research, and how we respond.">
+<meta property="og:title" content="Responsible Disclosure — Secure Chat by AnA Devyra">
+<meta property="og:description" content="Found a weakness? Report it in good faith. Here's our scope, our safe-harbor commitment, and how we work a report with you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anadevyra.com/responsible-disclosure/">
+<meta property="og:image" content="https://anadevyra.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Responsible Disclosure — Secure Chat by AnA Devyra">
+<meta name="twitter:description" content="Coordinated vulnerability disclosure. Scope, safe harbor, and how we respond.">
+<meta name="twitter:image" content="https://anadevyra.com/og-image.png">
+<link rel="canonical" href="https://anadevyra.com/responsible-disclosure/">
+<title>Responsible Disclosure — Secure Chat by AnA Devyra</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='%23010204'/><path d='M32 6 a26 26 0 0 1 0 52' fill='none' stroke='%23BF953F' stroke-width='4' stroke-linecap='round'/><path d='M32 58 a26 26 0 0 1 0 -52' fill='none' stroke='%23AA771C' stroke-width='4' stroke-linecap='round' opacity='.7'/><path d='M14 32 a18 18 0 0 1 18 -18' fill='none' stroke='%2300f2ff' stroke-width='3' stroke-linecap='round'/><path d='M50 32 a14 14 0 0 1 -14 14' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round'/><circle cx='32' cy='32' r='7' fill='%23FCF6BA'/></svg>">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<div class="bg-layer"></div>
+<div class="grid-layer"></div>
+<div class="scan-line"></div>
+
+<!-- ─── NAV ─── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
+      <span class="brand-name">SECURE CHAT <span class="brand-sub">by <span class="bn">AnA</span> Devyra</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/security/" class="nav-link">Security</a>
+      <a href="/business/" class="nav-link">For teams</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+    </div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀</button>
+    <a href="/download/" id="nav-cta" class="nav-cta">Download APK</a>
+  </div>
+</nav>
+
+<!-- ─── PAGE HERO ─── -->
+<header class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Security · Responsible disclosure</span>
+    <h1>
+      <span class="h1-gold">Found a weakness?</span><br>
+      <span class="h1-cyan">Tell us before anyone else.</span>
+    </h1>
+    <p class="lede">
+      We build a security product, so we take reports seriously and we treat the people who send
+      them as allies. Report in good faith, give us a fair window to fix it, and we'll work it
+      with you — no lawyers, no theatrics. This page is the deal we offer security researchers.
+    </p>
+  </div>
+</header>
+
+<!-- ─── HOW TO REPORT ─── -->
+<section id="report">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">How to report</div>
+      <h2 class="section-title">Send it straight to us.</h2>
+      <p class="section-sub">One inbox, read by a human on the team. Encrypt the details if they're sensitive.</p>
+    </div>
+    <div class="inner-card reveal">
+      <p class="about-body">
+        Email <a href="mailto:security@anadevyra.com" style="color:var(--cyan);text-decoration:none">security@anadevyra.com</a>.
+        For anything you wouldn't put on a postcard, install the app, share your node ID in that
+        same email, and we'll move the conversation into an end-to-end-encrypted thread before you
+        share the real detail.
+        <br><br>
+        <strong>A good report includes:</strong> the affected build or version, clear steps to
+        reproduce, what an attacker could actually achieve, and how we can reach you. Proof-of-concept
+        is welcome; please keep it to your own accounts and your own devices.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OUR COMMITMENT ─── -->
+<section id="commitment">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">What you get back</div>
+      <h2 class="section-title">Our side of the deal.</h2>
+    </div>
+    <div class="features">
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <div class="feat-title">Acknowledged in 48 hours</div>
+        <div class="feat-desc">We confirm we've received your report within two business days — a real reply from a person, not an auto-responder that vanishes.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="feat-title">Kept in the loop</div>
+        <div class="feat-desc">We tell you what we found, whether we could reproduce it, and where the fix stands. No black hole between "thanks" and silence.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="feat-title">Fix first, then disclose</div>
+        <div class="feat-desc">We coordinate timing with you and ship the fix before public discussion. We won't sit on a serious issue, and we won't rush you out the door either.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6-6.3 4.6L9 14 3 9.4h7.6z"/></svg></div>
+        <div class="feat-title">Credit, if you want it</div>
+        <div class="feat-desc">We're a small team ahead of launch, so there's no cash bounty program yet — but we'll credit you publicly with your blessing. Honest recognition over a hollow promise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SCOPE / SAFE HARBOR ─── -->
+<section id="scope">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">The rules</div>
+      <h2 class="section-title">Scope and safe harbor.</h2>
+      <p class="section-sub">Stay inside these lines and you're a researcher we want to hear from — not someone we have a problem with.</p>
+    </div>
+    <div class="posture reveal">
+      <div class="posture-grid">
+        <div class="posture-col">
+          <h4><b>In scope</b></h4>
+          <ul>
+            <li>The Secure Chat Android app (the official APK)</li>
+            <li>The relay and API at <strong>api.anadevyra.com</strong></li>
+            <li>This website, <strong>anadevyra.com</strong></li>
+          </ul>
+        </div>
+        <div class="posture-col no">
+          <h4><b class="gold">Out of scope</b></h4>
+          <ul>
+            <li>Volumetric denial-of-service and automated scanner noise</li>
+            <li>Social engineering of our team, or physical attacks</li>
+            <li>Third-party platforms we don't run (GitHub, mail and push providers)</li>
+            <li>Unrelated side projects that are not part of this app</li>
+          </ul>
+        </div>
+        <div class="posture-col zero">
+          <h4>Our safe harbor</h4>
+          <ul>
+            <li>Good-faith research that respects these rules will not be pursued legally</li>
+            <li>Don't access, modify, or keep data that isn't yours</li>
+            <li>Don't degrade the service for real users — give us a fair window to fix</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSING NOTE ─── -->
+<section id="thanks">
+  <div class="wrap">
+    <div class="about-card reveal">
+      <div class="quote-mark">"</div>
+      <p class="about-body">
+        A privacy product is only as honest as its willingness to be told it's wrong. If you take
+        the time to find and report a flaw responsibly, you've made the app safer for everyone who
+        uses it — and we won't forget that.
+      </p>
+      <div class="about-sig">— <span class="bn">AnA</span> Devyra Security</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-l">
+        <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
+        <div>
+          <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
+          <div class="foot-meta">Coordinated vulnerability disclosure</div>
+        </div>
+      </div>
+      <div class="foot-r">
+        <a href="/">Home</a>
+        <span style="opacity:.3">·</span>
+        <a href="/about/">About</a>
+        <span style="opacity:.3">·</span>
+        <a href="/security/">Security</a>
+        <span style="opacity:.3">·</span>
+        <a href="/business/">For teams</a>
+        <span style="opacity:.3">·</span>
+        <a href="/contact/">Contact</a>
+        <span style="opacity:.3">·</span>
+        <a href="https://github.com/anadevyra/anadevyra.github.io/releases" rel="noopener">Releases</a>
+        <span style="opacity:.3">·</span>
+        <a href="/#download">Download</a>
+      </div>
+    </div>
+    <div class="foot-legal" style="text-align:center;margin-top:16px;font-size:12.5px;color:var(--text-faint);letter-spacing:.02em">
+      <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy</a> · <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a> · <a href="/support/" style="color:inherit;text-decoration:none">Support</a> · <a href="/responsible-disclosure/" style="color:inherit;text-decoration:none">Responsible Disclosure</a>
+    </div>
+    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Post-quantum message encryption · <b>ML-KEM-1024</b> · <a href="https://anadevyra.com" style="color:inherit;text-decoration:none;letter-spacing:.2em">anadevyra.com</a></div>
+  </div>
+</footer>
+
+<button id="to-top" class="to-top" aria-label="Back to top">↑</button>
+
+<script>
+  const io=new IntersectionObserver((ents)=>{
+    ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+  },{threshold:0,rootMargin:"0px 0px 200px 0px"});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const tt=document.getElementById('to-top');
+  window.addEventListener('scroll',()=>{if(tt) tt.classList.toggle('on',window.scrollY>400)},{passive:true});
+  if(tt) tt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  const themeBtn=document.getElementById('theme-toggle');
+  function syncThemeIcon(){
+    const isClarity=document.documentElement.getAttribute('data-theme')==='clarity';
+    if(themeBtn) themeBtn.textContent=isClarity?'☾':'☀';
+  }
+  syncThemeIcon();
+  if(themeBtn) themeBtn.addEventListener('click',()=>{
+    const root=document.documentElement;
+    const next=root.getAttribute('data-theme')==='clarity'?'cyber':'clarity';
+    if(next==='clarity') root.setAttribute('data-theme','clarity');
+    else root.removeAttribute('data-theme');
+    try{localStorage.setItem('theme',next);}catch(e){}var mtc=document.querySelector('meta[name=theme-color]');if(mtc)mtc.setAttribute('content',next==='clarity'?'#FFFFFF':'#010204');
+    syncThemeIcon();
+  });
+</script>
+</body>
+</html>

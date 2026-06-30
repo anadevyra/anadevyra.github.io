@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#010204">
+<meta name="theme-color" content="#FFFFFF">
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
-<script>(()=>{try{var t=localStorage.getItem('theme');if(t==='clarity')document.documentElement.setAttribute('data-theme','clarity');}catch(e){}})();</script>
+<script>(()=>{try{var t=localStorage.getItem('theme');var dark=(t==='cyber');if(!dark)document.documentElement.setAttribute('data-theme','clarity');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',dark?'#010204':'#FFFFFF');}catch(e){}})();</script>
 <meta name="description" content="Contact Secure Chat by AnA Devyra — questions, feedback, security disclosures, enterprise deployment inquiries.">
 <meta property="og:title" content="Contact — Secure Chat by AnA Devyra">
 <meta property="og:description" content="Reach the team. Open channels for questions, feedback, and security disclosures.">
@@ -37,10 +37,12 @@
     <div class="nav-links">
       <a href="/" class="nav-link">Home</a>
       <a href="/about/" class="nav-link">About</a>
+      <a href="/security/" class="nav-link">Security</a>
+      <a href="/business/" class="nav-link">For teams</a>
       <a href="/contact/" class="nav-link active">Contact</a>
     </div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀</button>
-    <a href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-arm64-v8a-release.apk" id="nav-cta" class="nav-cta" rel="noopener">Download APK</a>
+    <a href="/download/" id="nav-cta" class="nav-cta">Download APK</a>
   </div>
 </nav>
 
@@ -87,7 +89,8 @@
         <div class="channel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Security disclosure</h3>
         <p>Found a vulnerability? Please report privately so we can patch before public discussion.
-          Use the channel below — we acknowledge within 48 hours and disclose once a fix has shipped.</p>
+          We acknowledge within 48 hours and disclose once a fix has shipped — see our
+          <a href="/responsible-disclosure/" style="color:var(--cyan);text-decoration:none">full disclosure policy</a>.</p>
         <a href="mailto:security@anadevyra.com">security@anadevyra.com ↗</a>
       </div>
 
@@ -96,7 +99,7 @@
         <h3>Business · enterprise hosting</h3>
         <p>Need a private deployment for your team or organization? We run secure dedicated
           instances with custom domains, policy controls, and ongoing operational support.
-          Quiet inbox, direct reply within a few days.</p>
+          See <a href="/business/">how a deployment works</a> first if you like — quiet inbox, direct reply within a few days.</p>
         <a href="mailto:team@anadevyra.com">team@anadevyra.com ↗</a>
       </div>
     </div>
@@ -155,13 +158,17 @@
         <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
         <div>
           <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
-          <div class="foot-meta">2.40.226 · Updated 2026-06-27</div>
+          <div class="foot-meta">2.40.228 · Updated 2026-06-30</div>
         </div>
       </div>
       <div class="foot-r">
         <a href="/">Home</a>
         <span style="opacity:.3">·</span>
         <a href="/about/">About</a>
+        <span style="opacity:.3">·</span>
+        <a href="/security/">Security</a>
+        <span style="opacity:.3">·</span>
+        <a href="/business/">For teams</a>
         <span style="opacity:.3">·</span>
         <a href="/contact/">Contact</a>
         <span style="opacity:.3">·</span>
@@ -170,7 +177,10 @@
         <a href="/#download">Download</a>
       </div>
     </div>
-    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Secured by <b>Kyber-1024</b> Post-Quantum Encryption · <a href="https://anadevyra.com" style="color:inherit;text-decoration:none;letter-spacing:.2em">anadevyra.com</a></div>
+    <div class="foot-legal" style="text-align:center;margin-top:16px;font-size:12.5px;color:var(--text-faint);letter-spacing:.02em">
+      <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy</a> · <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a> · <a href="/support/" style="color:inherit;text-decoration:none">Support</a> · <a href="/responsible-disclosure/" style="color:inherit;text-decoration:none">Responsible Disclosure</a>
+    </div>
+    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Post-quantum message encryption · <b>ML-KEM-1024</b> · <a href="https://anadevyra.com" style="color:inherit;text-decoration:none;letter-spacing:.2em">anadevyra.com</a></div>
   </div>
 </footer>
 
@@ -207,7 +217,7 @@
     const next=root.getAttribute('data-theme')==='clarity'?'cyber':'clarity';
     if(next==='clarity') root.setAttribute('data-theme','clarity');
     else root.removeAttribute('data-theme');
-    try{localStorage.setItem('theme',next);}catch(e){}
+    try{localStorage.setItem('theme',next);}catch(e){}var mtc=document.querySelector('meta[name=theme-color]');if(mtc)mtc.setAttribute('content',next==='clarity'?'#FFFFFF':'#010204');
     syncThemeIcon();
   });
 </script>

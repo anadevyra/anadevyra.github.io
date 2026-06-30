@@ -777,97 +777,137 @@
   .theme-toggle:hover{background:rgba(var(--accent-rgb),.22);transform:scale(1.06)}
   .theme-toggle:active{transform:scale(.96)}
 
-  /* ─── CLARITY (light) theme override ─── */
+  /* ─── CLARITY (light) theme — mirrors the app's white / blue-accent signature ─── */
+  /* app CLARITY (skin.dart): bg #FFFFFF · text #111111 · accent #0088CC · 2nd text #667781 */
   :root[data-theme="clarity"]{
-    --surface:rgba(255,252,244,.92);
-    --surface-2:rgba(255,253,248,.98);
-    --line:rgba(20,33,61,.10);
-    --line-strong:rgba(138,92,15,.26);
-    --text:#241d10;
-    --text-dim:#4d4533;
-    --text-faint:#80775f;
-    --cyan:#8A5C0F;
-    --cyan-soft:rgba(138,92,15,.14);
-    --accent-rgb:191,149,63;
-    --surf-a-rgb:255,253,247;
-    --surf-b-rgb:251,245,233;
-    --shadow-glow:0 0 0 1px rgba(20,33,61,.10),0 18px 60px -20px rgba(20,33,61,.18);
-    --shadow-card:0 1px 0 rgba(255,255,255,.6) inset,0 18px 40px -28px rgba(20,33,61,.25);
+    --surface:rgba(255,255,255,.92);
+    --surface-2:rgba(247,248,250,.98);
+    --line:rgba(17,24,39,.09);
+    --line-strong:rgba(0,136,204,.24);
+    --text:#111111;
+    --text-dim:#667781;
+    --text-faint:#7d858d;
+    --cyan:#0088CC;
+    --cyan-soft:rgba(0,136,204,.12);
+    --accent-rgb:0,136,204;
+    --surf-a-rgb:255,255,255;
+    --surf-b-rgb:247,248,250;
+    --shadow-glow:0 0 0 1px rgba(17,24,39,.08),0 18px 60px -20px rgba(17,24,39,.16);
+    --shadow-card:0 1px 0 rgba(255,255,255,.7) inset,0 18px 40px -28px rgba(17,24,39,.22);
   }
-  :root[data-theme="clarity"] body{background:#FAF6E8;color:#241d10}
+  :root[data-theme="clarity"] body{background:#FFFFFF;color:#111111}
   :root[data-theme="clarity"] .bg-layer{
     background:
-      radial-gradient(1200px 600px at 80% -10%,rgba(191,149,63,.18),transparent 60%),
-      radial-gradient(900px 500px at 0% 30%,rgba(20,33,61,.05),transparent 60%),
-      radial-gradient(800px 800px at 50% 110%,rgba(191,149,63,.12),transparent 60%),
-      #FAF6E8;
+      radial-gradient(1200px 600px at 80% -10%,rgba(0,136,204,.06),transparent 60%),
+      radial-gradient(900px 500px at 0% 30%,rgba(191,149,63,.04),transparent 60%),
+      radial-gradient(800px 800px at 50% 110%,rgba(0,136,204,.04),transparent 60%),
+      #FFFFFF;
   }
   :root[data-theme="clarity"] .grid-layer{
     background-image:
-      linear-gradient(rgba(20,33,61,.07) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(20,33,61,.07) 1px,transparent 1px);
-    opacity:.6;
+      linear-gradient(rgba(17,24,39,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(17,24,39,.045) 1px,transparent 1px);
+    opacity:.5;
   }
   :root[data-theme="clarity"] .scan-line{
-    background:linear-gradient(90deg,transparent,rgba(191,149,63,.45),transparent);
-    box-shadow:0 0 18px rgba(191,149,63,.35);
+    background:linear-gradient(90deg,transparent,rgba(0,136,204,.40),transparent);
+    box-shadow:0 0 18px rgba(0,136,204,.30);
   }
-  :root[data-theme="clarity"] .nav{background:rgba(250,246,232,.72);border-bottom-color:rgba(20,33,61,.06)}
-  :root[data-theme="clarity"] .nav-cta{
-    color:#FAF6E8;background:var(--gold-1);
-    box-shadow:0 0 0 1px var(--gold-1),0 8px 24px -8px rgba(191,149,63,.6);
-  }
-  :root[data-theme="clarity"] .nav-cta:hover{box-shadow:0 0 0 1px var(--gold-1),0 12px 32px -8px rgba(191,149,63,.8)}
-  :root[data-theme="clarity"] .theme-toggle{
-    background:rgba(191,149,63,.16);color:var(--gold-3);
-    border-color:rgba(20,33,61,.14);
-  }
-  :root[data-theme="clarity"] .theme-toggle:hover{background:rgba(191,149,63,.28)}
-  :root[data-theme="clarity"] .to-top{
-    background:rgba(191,149,63,.18);color:var(--gold-3);
-    border-color:rgba(20,33,61,.18);
-    box-shadow:0 6px 18px -4px rgba(191,149,63,.45);
-  }
-  :root[data-theme="clarity"] .to-top:hover{background:rgba(191,149,63,.3)}
-  :root[data-theme="clarity"] footer{border-top-color:rgba(20,33,61,.08)}
+  :root[data-theme="clarity"] .nav{background:rgba(255,255,255,.80);border-bottom-color:rgba(17,24,39,.07)}
 
-  /* CLARITY: swap cyan-rooted gradients to gold for hero + stats */
-  :root[data-theme="clarity"] .h1-cyan,
-  :root[data-theme="clarity"] .page-hero h1 .h1-cyan{
-    background:linear-gradient(135deg,#AA771C 0%,#BF953F 50%,#8A5C0F 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+  /* primary actions → app blue */
+  :root[data-theme="clarity"] .nav-cta{
+    color:#fff;background:linear-gradient(135deg,#0a97d4,#0088CC 55%,#0077b3);
+    box-shadow:0 0 0 1px rgba(0,119,179,.5),0 8px 24px -8px rgba(0,136,204,.55);
   }
-  :root[data-theme="clarity"] .stat-big-v{
-    background:linear-gradient(135deg,#AA771C 0%,#BF953F 50%,#8A5C0F 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    text-shadow:0 0 30px rgba(191,149,63,.18);
-  }
+  :root[data-theme="clarity"] .nav-cta:hover{box-shadow:0 0 0 1px rgba(0,119,179,.7),0 12px 32px -8px rgba(0,136,204,.75)}
   :root[data-theme="clarity"] .dl-cta{
-    color:#fffaf0;
-    background:linear-gradient(135deg,#D4AF37,#BF953F 55%,#9A6E15);
+    color:#fff;
+    background:linear-gradient(135deg,#16a0dd,#0088CC 50%,#0073ad);
     box-shadow:
-      0 0 0 1px rgba(138,92,15,.55),
-      0 18px 50px -10px rgba(191,149,63,.5),
+      0 0 0 1px rgba(0,119,179,.55),
+      0 18px 50px -10px rgba(0,136,204,.5),
       inset 0 1px 0 rgba(255,255,255,.35);
   }
   :root[data-theme="clarity"] .dl-cta:hover{
-    box-shadow:0 0 0 1px rgba(138,92,15,.8),0 24px 60px -10px rgba(191,149,63,.65),inset 0 1px 0 rgba(255,255,255,.35);
+    box-shadow:0 0 0 1px rgba(0,119,179,.8),0 24px 60px -10px rgba(0,136,204,.65),inset 0 1px 0 rgba(255,255,255,.35);
   }
+
+  /* blue accent chrome */
+  :root[data-theme="clarity"] .theme-toggle{
+    background:rgba(0,136,204,.10);color:#0088CC;border-color:rgba(17,24,39,.12);
+  }
+  :root[data-theme="clarity"] .theme-toggle:hover{background:rgba(0,136,204,.20)}
+  :root[data-theme="clarity"] .to-top{
+    background:rgba(0,136,204,.12);color:#0088CC;border-color:rgba(0,136,204,.28);
+    box-shadow:0 6px 18px -4px rgba(0,136,204,.40);
+  }
+  :root[data-theme="clarity"] .to-top:hover{background:rgba(0,136,204,.22)}
+  :root[data-theme="clarity"] footer{border-top-color:rgba(17,24,39,.08)}
   :root[data-theme="clarity"] .feat-icon{
-    background:radial-gradient(circle at 30% 30%,rgba(191,149,63,.22),rgba(191,149,63,.05) 60%);
-    box-shadow:0 0 24px -6px rgba(191,149,63,.35);
+    background:radial-gradient(circle at 30% 30%,rgba(0,136,204,.16),rgba(0,136,204,.04) 60%);
+    box-shadow:0 0 24px -6px rgba(0,136,204,.30);
   }
   :root[data-theme="clarity"] .channel-icon{
-    background:rgba(191,149,63,.14)!important;
-    border-color:rgba(138,92,15,.32)!important;
-    color:#8A5C0F!important;
-    box-shadow:0 0 24px -6px rgba(191,149,63,.35);
+    background:rgba(0,136,204,.10)!important;
+    border-color:rgba(0,136,204,.30)!important;
+    color:#0088CC!important;
+    box-shadow:0 0 24px -6px rgba(0,136,204,.30);
   }
-  :root[data-theme="clarity"] .compare-table thead th{background:rgba(191,149,63,.05)}
-  :root[data-theme="clarity"] .compare-table .us{background:rgba(191,149,63,.08)}
-  :root[data-theme="clarity"] .compare-table tbody tr:hover{background:rgba(191,149,63,.04)}
-  :root[data-theme="clarity"] .road-now-badge{background:rgba(191,149,63,.14)}
   :root[data-theme="clarity"] .how-num{
-    background:rgba(191,149,63,.12);border-color:rgba(138,92,15,.30);color:#8A5C0F;
+    background:rgba(0,136,204,.10);border-color:rgba(0,136,204,.28);color:#0088CC;
   }
-  :root[data-theme="clarity"] ::selection{background:rgba(191,149,63,.35);color:#241d10}
+  :root[data-theme="clarity"] .compare-table thead th{background:rgba(0,136,204,.04)}
+  :root[data-theme="clarity"] .compare-table .us{background:rgba(0,136,204,.07)}
+  :root[data-theme="clarity"] .compare-table tbody tr:hover{background:rgba(0,136,204,.035)}
+  :root[data-theme="clarity"] .compare-table .yes{color:#0f9d4e}
+  :root[data-theme="clarity"] .compare-table .partial{color:#9a6e15}
+  :root[data-theme="clarity"] ::selection{background:rgba(0,136,204,.20);color:#111111}
+
+  /* small uppercase eyebrows → deeper blue so they read on white */
+  :root[data-theme="clarity"] .eyebrow,
+  :root[data-theme="clarity"] .section-eyebrow{color:#006fa6;opacity:1}
+
+  /* accent headings + big numerals → app blue (preserves the two-tone hero) */
+  :root[data-theme="clarity"] .h1-cyan,
+  :root[data-theme="clarity"] .page-hero h1 .h1-cyan{
+    background:linear-gradient(135deg,#12a0de 0%,#0088CC 55%,#006a9e 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  :root[data-theme="clarity"] .stat-big-v{
+    background:linear-gradient(135deg,#12a0de 0%,#0088CC 55%,#006a9e 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 30px rgba(0,136,204,.16);
+  }
+
+  /* brand gold — deepened so it reads on white (drops the pale cream stop) */
+  :root[data-theme="clarity"] .brand-name{
+    background:linear-gradient(135deg,#86600F,#6E4A0C 60%,#5E400B);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  :root[data-theme="clarity"] .h1-gold,
+  :root[data-theme="clarity"] .page-hero h1 .h1-gold,
+  :root[data-theme="clarity"] .mockup-copy h3 .glow{
+    background:linear-gradient(135deg,#B5841F 0%,#8A5C0F 55%,#6E4A0C 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  :root[data-theme="clarity"] .quote-mark{
+    background:linear-gradient(135deg,#B5841F,#8A5C0F);
+    -webkit-background-clip:text;background-clip:text;color:transparent;opacity:.7;
+  }
+  :root[data-theme="clarity"] .cluster-label{color:#8A5C0F;opacity:1}
+  :root[data-theme="clarity"] .posture-col h4 b.gold,
+  :root[data-theme="clarity"] .posture-col.no li::before,
+  :root[data-theme="clarity"] .channel .pending{color:#8A5C0F}
+
+  /* phone mockup is a dark device — keep its interior text light on the dark screen */
+  :root[data-theme="clarity"] .phone-name,
+  :root[data-theme="clarity"] .bubble.in,
+  :root[data-theme="clarity"] .bubble.out{color:#eaf2f6}
+  :root[data-theme="clarity"] .phone-statusbar,
+  :root[data-theme="clarity"] .phone-status,
+  :root[data-theme="clarity"] .phone-composer-text,
+  :root[data-theme="clarity"] .bubble .time{color:#9fb0b8}
+  :root[data-theme="clarity"] .phone-statusbar b,
+  :root[data-theme="clarity"] .phone-name .vcheck,
+  :root[data-theme="clarity"] .bubble .lock{color:#3ad0dd}

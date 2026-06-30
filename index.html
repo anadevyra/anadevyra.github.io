@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#FAF6E8">
+<meta name="theme-color" content="#FFFFFF">
 <meta http-equiv="cache-control" content="no-cache, must-revalidate">
 <meta http-equiv="pragma" content="no-cache">
-<script>(()=>{try{var t=localStorage.getItem('theme');var dark=(t==='cyber');if(!dark)document.documentElement.setAttribute('data-theme','clarity');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',dark?'#010204':'#FAF6E8');}catch(e){}})();</script>
+<script>(()=>{try{var t=localStorage.getItem('theme');var dark=(t==='cyber');if(!dark)document.documentElement.setAttribute('data-theme','clarity');var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',dark?'#010204':'#FFFFFF');}catch(e){}})();</script>
 <meta name="description" content="Secure Chat by AnA Devyra — post-quantum encrypted messaging. Encrypted groups, channels, calls, Stories, voice transcribe, smart replies, and true end-to-end media. No phone, no email. Dedicated enterprise deployments on request.">
 <meta property="og:title" content="Secure Chat by AnA Devyra — Post-Quantum Encrypted Messaging">
-<meta property="og:description" content="Kyber-1024 secured. Encrypted groups, channels, calls, Stories, voice transcribe, and true end-to-end media. No phone. No email. Sovereign Swiss roadmap.">
+<meta property="og:description" content="Post-quantum encrypted messaging (ML-KEM-1024). Encrypted groups, channels, Stories, voice transcribe, end-to-end media, and WebRTC-secured calls. No phone. No email. Sovereign Swiss roadmap.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://anadevyra.com">
 <meta property="og:image" content="https://anadevyra.com/og-image.png">
@@ -92,10 +92,12 @@
     <div class="nav-links">
       <a href="/" class="nav-link active">Home</a>
       <a href="/about/" class="nav-link">About</a>
+      <a href="/security/" class="nav-link">Security</a>
+      <a href="/business/" class="nav-link">For teams</a>
       <a href="/contact/" class="nav-link">Contact</a>
     </div>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">☀</button>
-    <a href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-arm64-v8a-release.apk" id="nav-cta" class="nav-cta" rel="noopener">Download APK</a>
+    <a href="/download/" id="nav-cta" class="nav-cta">Download APK</a>
   </div>
 </nav>
 
@@ -144,9 +146,9 @@
             running Android 8.0 or later.
           </p>
           <div class="dl-stats">
-            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.226</div></div>
+            <div class="stat"><div class="stat-k">Version</div><div class="stat-v" id="stat-version">2.40.228</div></div>
             <div class="stat"><div class="stat-k">Android</div><div class="stat-v" id="stat-android">8.0+</div></div>
-            <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">110 MB</div></div>
+            <div class="stat"><div class="stat-k">Size</div><div class="stat-v" id="stat-size">111 MB</div></div>
           </div>
         </div>
         <div class="dl-cta-wrap">
@@ -154,9 +156,9 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
             Download APK
           </a>
-          <div class="dl-meta">New phones · GitHub Releases · <b id="dl-updated">Updated 2026-06-27</b></div>
+          <div class="dl-meta">New phones · GitHub Releases · <b id="dl-updated">Updated 2026-06-30</b></div>
           <div class="dl-alt">On an older phone? <a id="dl-alt-link" href="https://github.com/anadevyra/anadevyra.github.io/releases/latest/download/aura-armeabi-v7a-release.apk" rel="noopener">Get the lighter build (<span id="dl-alt-size">105</span> MB) ↓</a></div>
-          <div class="dl-note">Android may warn about installing from outside the Play Store — tap <b>Install anyway</b> and grant <em>Allow from this source</em> once. The APK is signed; you can verify the SHA in every release.</div>
+          <div class="dl-note">Android may warn about installing from outside an app store — tap <b>Install anyway</b> and grant <em>Allow from this source</em> once. The APK is signed; you can verify its SHA-256 checksum on the <a href="/download/" style="color:var(--cyan);text-decoration:none">download page</a>.</div>
         </div>
       </div>
     </div>
@@ -301,6 +303,11 @@
         <div class="feat-desc">Hide your presence entirely — last-seen, online dot, typing indicator, read receipts. You see them; they don't see you.</div>
       </div>
       <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="10" x2="6" y2="10"/><line x1="10" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="14" y2="10"/><line x1="18" y1="10" x2="18" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg></div>
+        <div class="feat-title">Private Keyboard</div>
+        <div class="feat-desc">An optional keyboard built right inside the app, so no third-party keyboard ever sees a word before our encryption does. Type, switch languages, dictate by voice and translate inline — every keystroke stays on your device.</div>
+      </div>
+      <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 17H2L12 3z"/><line x1="12" y1="10" x2="12" y2="15"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg></div>
         <div class="feat-title">Panic Mode</div>
         <div class="feat-desc">One trigger and the real account wipes — keys, messages, contacts, gone in seconds. Restore later from a backup, or don't.</div>
@@ -343,6 +350,11 @@
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8h10"/><path d="M7 12h6"/><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-4 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg></div>
         <div class="feat-title">Smart Replies</div>
         <div class="feat-desc">Multilingual ML Kit suggestions appear over the composer for fresh messages and pop on tap for any older one. Inference 100% on-device — your text never leaves the phone.</div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14"/><path d="M7 5h6a3.5 3.5 0 0 1 0 7H7"/><path d="M7 12h7a3.5 3.5 0 0 1 0 7H7"/></svg></div>
+        <div class="feat-title">Rich Text Formatting</div>
+        <div class="feat-desc">Bold, italic, underline, strikethrough, monospace code, block-quotes and links — applied right from the selection toolbar. Styles attach to your words, never as stray symbols left in the message.</div>
       </div>
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 16v6"/><path d="M4 12h6"/><path d="M14 12h6"/><circle cx="12" cy="12" r="3"/></svg></div>
@@ -474,7 +486,7 @@
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><path d="M15 19c0-2 1.8-3.4 3.6-3.4"/></svg></div>
         <div class="feat-title">Group Voice Calls</div>
-        <div class="feat-desc">Host group voice calls secured with the same post-quantum stack — live roster, per-person status, and join straight from the banner with one tap.</div>
+        <div class="feat-desc">Host group voice calls carried over the same WebRTC DTLS-SRTP encryption as 1-to-1 calls — live roster, per-person status, and join straight from the banner with one tap.</div>
       </div>
     </div>
 
@@ -537,7 +549,7 @@
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M10 9h.01M14 9h.01M10 13h.01M14 13h.01M10 17h.01M14 17h.01"/></svg></div>
         <div class="feat-title">Business · Enterprise hosting</div>
-        <div class="feat-desc">Need a private deployment for your team? We run secure dedicated instances with custom domains, policy controls, and ongoing operational support. Reach out at team@anadevyra.com.</div>
+        <div class="feat-desc">Need a private deployment for your team? A dedicated, hardened relay on your own domain — same encryption stack, isolated from the public network. <a href="/business/" style="color:var(--cyan);text-decoration:none">See how it works →</a></div>
       </div>
       <div class="feat reveal">
         <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/><line x1="4" y1="20" x2="20" y2="4"/></svg></div>
@@ -649,7 +661,7 @@
     <div class="section-head reveal">
       <div class="section-eyebrow">Server roadmap</div>
       <h2 class="section-title">A global multi-region network.</h2>
-      <p class="section-sub">Live in Mumbai today, with a Switzerland-anchored future and regional subservers close to every user. A clear path, honest about the dates.</p>
+      <p class="section-sub">Live in Mumbai today, with a Switzerland-anchored future and regional subservers close to every user. A clear path, built region by region.</p>
     </div>
     <div class="roadmap-grid">
       <div class="road-card now reveal">
@@ -663,7 +675,7 @@
         </ul>
       </div>
       <div class="road-card reveal">
-        <div class="road-when">Next · Q3 2026</div>
+        <div class="road-when">Next</div>
         <div class="road-title">Switzerland — new primary</div>
         <div class="road-desc">Bring up a Switzerland region as the new primary, with cross-region replication of the vault, pending queue and identity directory, and health-checked failover at the discovery layer.</div>
         <ul class="road-list">
@@ -673,7 +685,7 @@
         </ul>
       </div>
       <div class="road-card reveal">
-        <div class="road-when">Then · Q4 2026 +</div>
+        <div class="road-when">Then</div>
         <div class="road-title">Global subserver network</div>
         <div class="road-desc">Grow regional subservers close to users, all anchored on the Swiss primary — with enterprise partners able to run dedicated regional relays for their own organisations.</div>
         <ul class="road-list">
@@ -722,6 +734,9 @@
         </div>
       </div>
     </div>
+    <p style="text-align:center;margin-top:26px" class="reveal">
+      <a href="/security/" style="color:var(--cyan);font-weight:600;text-decoration:none;letter-spacing:.02em">Read the full security model →</a>
+    </p>
   </div>
 </section>
 
@@ -815,7 +830,7 @@
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">Do you offer enterprise deployments?</summary>
-        <div class="faq-a">Yes — for teams, businesses, and organisations that need a dedicated relay under their own control. We deploy a hardened instance pointed at your domain, with the same E2E crypto stack and your operations team holding the keys. Reach out via <a href="/contact/" style="color:var(--cyan)">contact</a> for scoping.</div>
+        <div class="faq-a">Yes — for teams, businesses, and organisations that need a dedicated relay under their own control. We deploy a hardened instance pointed at your domain, with the same E2E crypto stack and your operations team holding the keys. The full picture, honest limits included, is on the <a href="/business/" style="color:var(--cyan)">for-teams page</a>.</div>
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">Does it work between countries?</summary>
@@ -843,7 +858,7 @@
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">What's the Switzerland plan?</summary>
-        <div class="faq-a">Q3 2026: bring up a <strong>Switzerland region</strong> as the new primary with cross-region replication. Auto-failover at the discovery layer means every installed app migrates without an APK push. Q4 2026 and beyond: extend with regional subservers close to users worldwide, anchored on the Swiss primary, with strong privacy framework alignment. Enterprise partners can host dedicated regional relays for their organisations.</div>
+        <div class="faq-a">Next: bring up a <strong>Switzerland region</strong> as the new primary with cross-region replication. Auto-failover at the discovery layer means every installed app migrates without an APK push. After that: extend with regional subservers close to users worldwide, anchored on the Swiss primary, with strong privacy framework alignment. Enterprise partners can host dedicated regional relays for their organisations.</div>
       </details>
       <details class="faq-item reveal">
         <summary class="faq-q">What will be in premium?</summary>
@@ -879,13 +894,17 @@
         <div class="brand-lock aura-orb" aria-hidden="true"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="core"></div></div>
         <div>
           <div class="foot-name">Secure Chat <span style="color:var(--text-faint);font-weight:400;">by <span class="bn">AnA</span> Devyra</span></div>
-          <div class="foot-meta">2.40.226 · Updated 2026-06-27</div>
+          <div class="foot-meta">2.40.228 · Updated 2026-06-30</div>
         </div>
       </div>
       <div class="foot-r">
         <a href="/about/">About</a>
         <span style="opacity:.3">·</span>
         <a href="/contact/">Contact</a>
+        <span style="opacity:.3">·</span>
+        <a href="/security/">Security</a>
+        <span style="opacity:.3">·</span>
+        <a href="/business/">For teams</a>
         <span style="opacity:.3">·</span>
         <a href="#app-roadmap">What's Next</a>
         <span style="opacity:.3">·</span>
@@ -898,7 +917,10 @@
         <a href="#download">Download</a>
       </div>
     </div>
-    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Secured by <b>Kyber-1024</b> Post-Quantum Encryption · <a href="https://anadevyra.com" style="color:inherit;text-decoration:none;letter-spacing:.2em">anadevyra.com</a></div>
+    <div class="foot-legal" style="text-align:center;margin-top:16px;font-size:12.5px;color:var(--text-faint);letter-spacing:.02em">
+      <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy</a> · <a href="/terms/" style="color:inherit;text-decoration:none">Terms</a> · <a href="/support/" style="color:inherit;text-decoration:none">Support</a> · <a href="/responsible-disclosure/" style="color:inherit;text-decoration:none">Responsible Disclosure</a>
+    </div>
+    <div class="seal">© 2026 <span class="bn">AnA</span> Devyra · Post-quantum message encryption · <b>ML-KEM-1024</b> · <a href="https://anadevyra.com" style="color:inherit;text-decoration:none;letter-spacing:.2em">anadevyra.com</a></div>
   </div>
 </footer>
 
@@ -919,7 +941,6 @@
       const primary = (d.arm64 && d.arm64.url) || d.download_url;
       if(primary){
         $('dl-cta').href = primary;
-        const nav = $('nav-cta'); if(nav) nav.href = primary;
       }
       if(d.arm64 && d.arm64.size_mb) $('stat-size').textContent = d.arm64.size_mb + ' MB';
       if(d.v7a){
@@ -929,7 +950,7 @@
       if(d.updated){
         $('dl-updated').textContent = 'Updated ' + d.updated;
         const fm = document.querySelector('.foot-meta');
-        if(fm) fm.textContent = (d.version || '2.40.226') + ' · Updated ' + d.updated;
+        if(fm) fm.textContent = (d.version || '2.40.228') + ' · Updated ' + d.updated;
       }
     })
     .catch(()=>{});
@@ -971,7 +992,7 @@
     else root.removeAttribute('data-theme');
     try{localStorage.setItem('theme',next);}catch(e){}
     const m=document.querySelector('meta[name=theme-color]');
-    if(m) m.setAttribute('content',next==='clarity'?'#FAF6E8':'#010204');
+    if(m) m.setAttribute('content',next==='clarity'?'#FFFFFF':'#010204');
     syncThemeIcon();
   });
 </script>
