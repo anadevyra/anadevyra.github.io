@@ -406,7 +406,7 @@
   @keyframes orb-spin{to{transform:rotate(360deg)}}
   @keyframes orb-pulse{0%,100%{transform:scale(1);filter:brightness(1.25)}50%{transform:scale(1.18);filter:brightness(1.7)}}
   @keyframes orb-flow{to{background-position:200% center}}
-  /* hero centerpiece - larger orbital with extra orbital layers */
+  /* hero centerpiece, larger orbital with extra orbital layers */
   .aura-orb.hero-orb{width:160px;height:160px;margin:0 auto 8px}
   .aura-orb.hero-orb .r1{border-width:4px}
   .aura-orb.hero-orb .r3{border-width:3px}
@@ -777,7 +777,7 @@
   .theme-toggle:hover{background:rgba(var(--accent-rgb),.22);transform:scale(1.06)}
   .theme-toggle:active{transform:scale(.96)}
 
-  /* ─── CLARITY (light) theme - mirrors the app's white / blue-accent signature ─── */
+  /* ─── CLARITY (light) theme, mirrors the app's white / blue-accent signature ─── */
   /* app CLARITY (skin.dart): bg #FFFFFF · text #111111 · accent #0088CC · 2nd text #667781 */
   :root[data-theme="clarity"]{
     --surface:rgba(255,255,255,.92);
@@ -880,7 +880,7 @@
     text-shadow:0 0 30px rgba(0,136,204,.16);
   }
 
-  /* brand gold - deepened so it reads on white (drops the pale cream stop) */
+  /* brand gold, deepened so it reads on white (drops the pale cream stop) */
   :root[data-theme="clarity"] .brand-name{
     background:linear-gradient(135deg,#86600F,#6E4A0C 60%,#5E400B);
     -webkit-background-clip:text;background-clip:text;color:transparent;
@@ -900,7 +900,7 @@
   :root[data-theme="clarity"] .posture-col.no li::before,
   :root[data-theme="clarity"] .channel .pending{color:#8A5C0F}
 
-  /* phone mockup is a dark device - keep its interior text light on the dark screen */
+  /* phone mockup is a dark device, keep its interior text light on the dark screen */
   :root[data-theme="clarity"] .phone-name,
   :root[data-theme="clarity"] .bubble.in,
   :root[data-theme="clarity"] .bubble.out{color:#eaf2f6}
